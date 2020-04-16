@@ -1,10 +1,14 @@
 package view;
 
-import view.components.Navigator;
+//import view.components.Navigator;
+import view.panels.Programmer;
 import view.panels.Science;
+import view.panels.Transformer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class BasePanel extends JFrame {
     public static void main(String[] args) {
@@ -12,8 +16,11 @@ public class BasePanel extends JFrame {
     }
     /** 计算结果文本框 */
     private JTextField resultText = new JTextField("0");
+    private JComboBox menu=new JComboBox();
     private Science science=new Science();
-    private Navigator navigator=new Navigator();
+    private Programmer programmer=new Programmer();
+    private Transformer transformer=new Transformer();
+//    private Navigator navigator=new Navigator();
     public BasePanel(){
         super();
         // 初始化计算器
@@ -27,15 +34,57 @@ public class BasePanel extends JFrame {
         this.setResizable(false);
         // 使计算器中各组件大小合适
         this.pack();
+        //关闭退出
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     private void init(){
-
+        Container container=getContentPane();
+        container.setLayout(new BorderLayout(3, 5));
+        // 文本框中的内容采用右对齐方式
+        resultText.setHorizontalAlignment(JTextField.RIGHT);
+        // 不允许修改结果文本框
+        resultText.setEditable(false);
+        // 设置文本框背景颜色为透明
+        resultText.setOpaque(true);
+        menu.addItem("科学计算器");
+        menu.addItem("程序员计算器");
+        menu.addItem("转换器");
+        menu.addActionListener(e -> {
+//            System.out.println(menu.getSelectedIndex());
+           int index=menu.getSelectedIndex();
+           switch (index){
+               case 0:{
+//                   System.out.println(index);
+//                   System.out.println(container.getComponent(0));
+                   container.remove(1);
+                   container.add("South", science.init());
+                   container.revalidate();
+                   break;
+               }
+               case 1:{
+//                   System.out.println(index);
+                   container.remove(1);
+                   container.add("South", programmer.init());
+                   container.revalidate();
+                   break;
+               }
+               case 2:{
+//                   System.out.println(index);
+                   container.remove(1);
+                   container.add("South", transformer.init());
+                   container.revalidate();
+                   break;
+               }
+           }
+        });
+        JPanel navigator=new JPanel();
+        navigator.setLayout(new BorderLayout(3, 5));
+        navigator.add("North",menu);
+        navigator.add("Center",resultText);
         // 整体布局
-        getContentPane().setLayout(new BorderLayout(3, 5));
-        getContentPane().add("North", navigator.init());
-//        getContentPane().add("Center", panel1);
-        getContentPane().add("South", science.init());
+
+        container.add("North", navigator);
+        container.add("South", science.init());
         // 为各按钮添加事件侦听器
 
     }
