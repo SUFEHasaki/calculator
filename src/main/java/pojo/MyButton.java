@@ -1,6 +1,6 @@
 package pojo;
 
-import java.awt.*;
+import javax.swing.*;
 
-public class MyButton extends Button {
+public class MyButton extends JButton {
 }

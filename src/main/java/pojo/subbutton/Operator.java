@@ -2,5 +2,7 @@ package pojo.subbutton;
 
 import pojo.MyButton;
 
-public class Operator extends MyButton {
+import javax.swing.*;
+
+public class Operator extends JButton {
 }
