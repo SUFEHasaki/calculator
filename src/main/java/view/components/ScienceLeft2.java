@@ -3,21 +3,24 @@ package view.components;
 import javax.swing.*;
 import java.awt.*;
 
-public class MemStore {
-    private final static String[] KEYS = { "MC", "M+", "M-", "MS" };
+public class ScienceLeft2 {
+    private final static String[] KEYS = { "2nd","2√x", "3√x", "y√x", "2^x", "log_yx", "e^x"};
     private static JButton[] keys = new JButton[KEYS.length];
-    public static JPanel memStore=init();
+    public static JButton getTransKey(){
+        return keys[0];
+    }
+    public static final JPanel scienceLeft=init();
     private static JPanel init(){
-        JPanel memPanel = new JPanel();
+        JPanel operator =new JPanel();
         // 用网格布局器，4行，4列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
-        memPanel.setLayout(new GridLayout(1, 4, 3, 3));
+        operator.setLayout(new GridLayout(7, 1, 3, 3));
         for (int i = 0; i < KEYS.length; i++) {
             keys[i] = new JButton(KEYS[i]);
-            memPanel.add(keys[i]);
+            operator.add(keys[i]);
             keys[i].setForeground(Color.black);
             keys[i].setBackground(Color.WHITE);
         }
 //      getContentPane().add("North", numPadPanel);
-        return memPanel;
+        return operator;
     }
 }
