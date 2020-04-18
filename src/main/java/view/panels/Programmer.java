@@ -1,63 +1,53 @@
 package view.panels;
 
 
+import myComponent.MyButton;
+import myComponent.MyTextField;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Programmer{
     private final  String[] MEMKEYS = { "MC", "M+", "M-", "MS" };
-    private  JButton[] memkeys = new JButton[MEMKEYS.length];
+    private  MyButton[] memkeys = new MyButton[MEMKEYS.length];
     private final  String[] RADIX = { "HEX", "DEC", "OCT", "BIN" };
-    private JButton[] radix=new JButton[RADIX.length];
+    private MyButton[] radix=new MyButton[RADIX.length];
     private  final String[] LEFTKEYS = { "A", "B", "C", "D", "E", "F"};
-    private  JButton[] leftkeys = new JButton[LEFTKEYS.length];
+    private  MyButton[] leftkeys = new MyButton[LEFTKEYS.length];
     private  final String[] PADKEYS = { "<<", ">>", "C", "◁","&","|","!","^", "(", ")", "%", "/","7", "8", "9", "*", "4", "5", "6",
             "-", "1", "2", "3", "+", "+/-","0", ".","=" };
-    private  JButton[] padkeys = new JButton[PADKEYS.length];
-    private JTextField resultText = new JTextField("0");
+    private  MyButton[] padkeys = new MyButton[PADKEYS.length];
+    private MyTextField resultText = new MyTextField("0");
     public Programmer(){
 
     }
     public JPanel init(){
-        // 文本框中的内容采用右对齐方式
-        resultText.setHorizontalAlignment(JTextField.RIGHT);
-        // 不允许修改结果文本框
-        resultText.setEditable(false);
-        // 设置文本框背景颜色为透明
-        resultText.setOpaque(true);
+
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
         for (int i = 0; i < MEMKEYS.length; i++) {
-            memkeys[i] = new JButton(MEMKEYS[i]);
+            memkeys[i] = new MyButton(MEMKEYS[i],Color.black);
             memPanel.add(memkeys[i]);
-            memkeys[i].setForeground(Color.black);
-            memkeys[i].setBackground(Color.WHITE);
         }
 
 
         for(int i=0;i<RADIX.length;i++){
-            radix[i]=new JButton(RADIX[i]);
-            radix[i].setForeground(Color.RED);
-            radix[i].setBackground(Color.WHITE);
+            radix[i]=new MyButton(RADIX[i],Color.RED);
         }
 
         JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new GridLayout(7, 1, 3, 3));
         leftPanel.add(radix[0]);
         for (int i = 0; i < LEFTKEYS.length; i++) {
-            leftkeys[i] = new JButton(LEFTKEYS[i]);
+            leftkeys[i] = new MyButton(LEFTKEYS[i],Color.black);
             leftPanel.add(leftkeys[i]);
-            leftkeys[i].setForeground(Color.black);
-            leftkeys[i].setBackground(Color.WHITE);
         }
 
         JPanel padPanel = new JPanel();
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
         for (int i = 0; i < PADKEYS.length; i++) {
-            padkeys[i] = new JButton(PADKEYS[i]);
+            padkeys[i] = new MyButton(PADKEYS[i],Color.black);
             padPanel.add(padkeys[i]);
-            padkeys[i].setForeground(Color.black);
-            padkeys[i].setBackground(Color.WHITE);
         }
         padkeys[26].setEnabled(false);
 

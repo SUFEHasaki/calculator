@@ -1,10 +1,9 @@
 package view;
 
-//import view.components.Navigator;
-import view.components.Navigator;
-import view.panels.Programmer;
-import view.panels.Science;
-import view.panels.Transformer;
+
+
+import view.panels.*;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,10 +28,11 @@ public class BasePanel extends JFrame{
         this.setTitle("Q宝");
         // 在屏幕(500, 300)坐标处显示计算器
         this.setLocation(500, 300);
+        this.setSize(350,400);
         // 不许修改计算器的大小
-//        this.setResizable(false);
+        this.setResizable(false);
         // 使计算器中各组件大小合适
-        this.pack();
+//        this.pack();
         //关闭退出
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -40,10 +40,9 @@ public class BasePanel extends JFrame{
         Container container=getContentPane();
         container.setLayout(new BorderLayout(3, 5));
         container.add("North", navigator.init());
-        container.add("South", transformer.init());
+        container.add("South", science.init());
         navigator.getMenu().addActionListener(e -> {
-            int index=navigator.getMenu().getSelectedIndex();
-            switch (index){
+            switch (navigator.getMenu().getSelectedIndex()){
                 case 0:{
                     container.remove(1);
                     container.add("South", science.init());
