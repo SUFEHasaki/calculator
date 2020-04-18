@@ -1,9 +1,10 @@
-package myComponent;
+package myComponent.comboBox;
 
 import javax.swing.JComboBox;
 
 public class AreaComboBox extends JComboBox<String> {
     public AreaComboBox(){
+        super();
         this.addItem("平方厘米");
         this.addItem("平方米");
         this.addItem("公顷");

@@ -1,56 +1,86 @@
 package view.panels;
 
-import myComponent.MyButton;
+import myComponent.button.*;
 import myComponent.MyTextField;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Science{
-    private final  String[] MEMKEYS = { "MC", "M+", "M-", "MS" };
-    private  MyButton[] memkeys = new MyButton[MEMKEYS.length];
-    private final  String[] TRANSKEYS = { "2nd","3rd", "1st"};
-    private  MyButton[] transkeys = new MyButton[TRANSKEYS.length];
-    private final  String[] LEFTKEYS1 = { "x²", "x³", "x^y", "10^x", "log", "ln"};
-    private final  String[] LEFTKEYS2 = { "2√x", "3√x", "y√x", "2^x", "log_yx", "e^x"};
-    private final  String[] LEFTKEYS3 = { "sin", "cos", "tan", "sec", "csc", "cot"};
+    private StringBuilder postfix = new StringBuilder();
+    private MyTextField resultText = new MyTextField("0",4);
+    private MCButton mcButton=new MCButton();
+    private MplusButton mplusButton=new MplusButton();
+    private MminusButton mminusButton=new MminusButton();
+    private MSButton msButton=new MSButton();
+    private ClearButton clearButton=new ClearButton(postfix,resultText);
+    private DeleteButton deleteButton=new DeleteButton();
+    private final String[] RESULTKEYS={"1/x","|x|","exp","n!","="};
+    private final String[] RESULTOPERATORS={"?","abs","exp","!","="};
+    private ResultButton[] resultButtons=new ResultButton[5];//1/x,|x|,exp,n!,=
+    private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "π", "e","-"};
+    private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];//0,1,2,3,4,5,6,7,8,9
+    private PointButton pointButton=new PointButton(postfix,resultText);
+    private final  String[] TRANSKEYS = { "1st","2nd","3rd"};
+    private  TransButton[] transkeys = new TransButton[TRANSKEYS.length];
+    private final  String[] OPERATORKEYS = { "x²", "x³", "x^y", "10^x", "log",
+            "ln","2√x", "3√x", "y√x", "2^x",
+            "log_yx", "e^x","sin", "cos", "tan",
+            "sec", "csc", "cot", "(", ")",
+            "%", "/", "*", "-", "+"};
+    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","2√", "3√", "√", "2^", "log_yx", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(", "(", ")", "%", "/", "*", "-", "+"};
 
-    private  MyButton[] leftkeys = new MyButton[LEFTKEYS1.length];
-    private final  String[] PADKEYS = { "π", "e", "C", "◁", "1/x", "|x|", "exp",
-            "%", "(", ")", "n!", "/","7", "8", "9", "*", "4", "5", "6",
-            "-", "1", "2", "3", "+", "+/-","0", ".","=" };
-    private  MyButton[] padkeys = new MyButton[PADKEYS.length];
-    private MyTextField resultText = new MyTextField("0");
+    private OperatorButton[] operatorButtons=new OperatorButton[OPERATORKEYS.length];
+//    private  GeneralButton[] leftkeys = new GeneralButton[LEFTKEYS1.length];
+
+
     public Science(){
 
     }
     public JPanel init(){
-        JPanel memPanel = new JPanel();
-        // 用网格布局器，1行，4列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素,下同
-        memPanel.setLayout(new GridLayout(1, 4, 3, 3));
-        for (int i = 0; i < MEMKEYS.length; i++) {
-            memkeys[i] = new MyButton(MEMKEYS[i],Color.black);
-            memPanel.add(memkeys[i]);
+        //      初始化5个结果按钮
+        for (int i = 0; i <RESULTKEYS.length; i++) {
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix);
+        //      初始化10个数字按钮
         }
-
-
-        JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayout(7, 1, 3, 3));
+        for (int i = 0; i <NUMBERKEYS.length; i++) {
+            numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,resultText);
+        }
+       //        初始化26个运算符按钮
+        for (int i = 0; i <OPERATORKEYS.length; i++) {
+            operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORS[i],postfix,resultText,pointButton);
+        }
+        //       初始化3个运算符变换按钮
         for (int i = 0; i < TRANSKEYS.length; i++) {
-            transkeys[i] = new MyButton(TRANSKEYS[i],Color.BLUE);
+            transkeys[i] = new TransButton(TRANSKEYS[i]);
         }
-        leftPanel.add(transkeys[0]);
-        for (int i = 0; i < LEFTKEYS1.length; i++) {
-            leftkeys[i] = new MyButton(LEFTKEYS1[i],Color.black);
-            leftPanel.add(leftkeys[i]);
-        }
+
+        JPanel memPanel = new JPanel();
+        memPanel.setLayout(new GridLayout(1, 4, 3, 3));
+        memPanel.add(mcButton);
+        memPanel.add(mplusButton);
+        memPanel.add(mminusButton);
+        memPanel.add(msButton);
 
         JPanel padPanel = new JPanel();
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
-        for (int i = 0; i < PADKEYS.length; i++) {
-            padkeys[i] = new MyButton(PADKEYS[i],Color.black);
-            padPanel.add(padkeys[i]);
+        padPanel.add(resultButtons[0]);padPanel.add(resultButtons[1]);padPanel.add(clearButton);padPanel.add(deleteButton);
+        padPanel.add(resultButtons[2]);padPanel.add(resultButtons[3]);padPanel.add(numberButtons[10]);padPanel.add(numberButtons[11]);
+        padPanel.add(operatorButtons[18]);padPanel.add(operatorButtons[19]);padPanel.add(operatorButtons[20]);padPanel.add(operatorButtons[21]);
+        padPanel.add(numberButtons[0]);padPanel.add(numberButtons[1]);padPanel.add(numberButtons[2]);padPanel.add(operatorButtons[22]);
+        padPanel.add(numberButtons[3]);padPanel.add(numberButtons[4]);padPanel.add(numberButtons[5]);padPanel.add(operatorButtons[23]);
+        padPanel.add(numberButtons[6]);padPanel.add(numberButtons[7]);padPanel.add(numberButtons[8]);padPanel.add(operatorButtons[24]);
+        padPanel.add(numberButtons[12]);padPanel.add(numberButtons[9]);padPanel.add(pointButton);padPanel.add(resultButtons[4]);
+
+        JPanel leftPanel = new JPanel();
+        leftPanel.setLayout(new GridLayout(7, 1, 3, 3));
+
+        leftPanel.add(transkeys[0]);
+        for(int i=0;i<6;i++){
+            leftPanel.add(operatorButtons[i]);
         }
+
+
 
         JPanel buttonPanel=new JPanel();
         buttonPanel.setLayout(new BorderLayout(3, 5));
@@ -64,25 +94,29 @@ public class Science{
         science.add("Center",resultText);
 
 //        各种监听器
+
         transkeys[0].addActionListener(e->{
-            for (int i = 0; i < LEFTKEYS2.length; i++) {
-                leftkeys[i].setText(LEFTKEYS2[i]);
+            for (int i = 0; i < 6; i++) {
+                leftPanel.remove(i+1);
+                leftPanel.add(operatorButtons[i+6],i+1);
             }
             leftPanel.add(transkeys[1],0);
             leftPanel.remove(transkeys[0]);
             leftPanel.revalidate();
         });
         transkeys[1].addActionListener(e->{
-            for (int i = 0; i < LEFTKEYS3.length; i++) {
-                leftkeys[i].setText(LEFTKEYS3[i]);
+            for (int i = 0; i < 6; i++) {
+                leftPanel.remove(i+1);
+                leftPanel.add(operatorButtons[i+12],i+1);
             }
             leftPanel.add(transkeys[2],0);
             leftPanel.remove(transkeys[1]);
             leftPanel.revalidate();
         });
         transkeys[2].addActionListener(e->{
-            for (int i = 0; i < LEFTKEYS1.length; i++) {
-                leftkeys[i].setText(LEFTKEYS1[i]);
+            for (int i = 0; i < 6; i++) {
+                leftPanel.remove(i+1);
+                leftPanel.add(operatorButtons[i],i+1);
             }
             leftPanel.add(transkeys[0],0);
             leftPanel.remove(transkeys[2]);

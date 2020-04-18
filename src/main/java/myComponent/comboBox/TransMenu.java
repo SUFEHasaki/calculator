@@ -1,9 +1,10 @@
-package myComponent;
+package myComponent.comboBox;
 
 import javax.swing.JComboBox;
 
 public class TransMenu extends JComboBox<String> {
     public TransMenu(){
+        super();
         this.addItem("货币");
         this.addItem("长度");
         this.addItem("重量");

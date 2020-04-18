@@ -50,7 +50,7 @@ public class test {
     public  String posrfix(String exp) {
 
         StringBuilder postfix = new StringBuilder();
-        Stack<Character> opt = new Stack();
+        Stack<Character> opt = new Stack<>();
         char [] c = exp.toCharArray();
 
         //遍历中缀表达式，请查看上面的规则

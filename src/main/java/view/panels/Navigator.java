@@ -1,6 +1,6 @@
 package view.panels;
 
-import myComponent.NavigatorMenu;
+import myComponent.comboBox.NavigatorMenu;
 
 import javax.swing.*;
 import java.awt.*;
