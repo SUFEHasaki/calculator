@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class test {
-    public static void main(String[] args) {
+    public  void main(String[] args) {
 
         String expre = "ln(2^(6-2*2)*5-6)/2";
         String ans;
@@ -12,7 +12,7 @@ public class test {
         compute(ans);
     }
 
-    public static int prio(char a){
+    public  int prio(char a){
         int priority_a=0;
         switch (a){
             case '+':
@@ -47,7 +47,7 @@ public class test {
         return  priority_a;
     }
     
-    public static String posrfix(String exp) {
+    public  String posrfix(String exp) {
 
         StringBuilder postfix = new StringBuilder();
         Stack<Character> opt = new Stack();
@@ -158,11 +158,11 @@ public class test {
 
     }
 
-    public static boolean isNum(char c){
+    public  boolean isNum(char c){
         return ( c>=48 && c<=57 )|| c=='.';
     }
 
-    public static void compute(String expression) {
+    public  void compute(String expression) {
         Stack<Double> num = new Stack<>();
         StringBuilder  sb = new StringBuilder();
         char[] c = expression.toCharArray();

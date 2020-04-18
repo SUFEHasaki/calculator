@@ -11,13 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BasePanel extends JFrame {
+public class BasePanel extends JFrame{
     public static void main(String[] args) {
-     new BasePanel().setVisible(true);
+        new BasePanel().setVisible(true);
     }
     /** 计算结果文本框 */
-//    private JTextField resultText = new JTextField("0");
-//    private JComboBox menu=new JComboBox();
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
@@ -66,6 +64,6 @@ public class BasePanel extends JFrame {
                 }
             }
         });
-
     }
+
 }
