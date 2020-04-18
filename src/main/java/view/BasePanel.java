@@ -30,7 +30,7 @@ public class BasePanel extends JFrame{
         // 在屏幕(500, 300)坐标处显示计算器
         this.setLocation(500, 300);
         // 不许修改计算器的大小
-        this.setResizable(false);
+//        this.setResizable(false);
         // 使计算器中各组件大小合适
         this.pack();
         //关闭退出
@@ -40,7 +40,7 @@ public class BasePanel extends JFrame{
         Container container=getContentPane();
         container.setLayout(new BorderLayout(3, 5));
         container.add("North", navigator.init());
-        container.add("South", science.init());
+        container.add("South", transformer.init());
         navigator.getMenu().addActionListener(e -> {
             int index=navigator.getMenu().getSelectedIndex();
             switch (index){

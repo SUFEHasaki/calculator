@@ -15,6 +15,9 @@ public class Programmer{
             "-", "1", "2", "3", "+", "+/-","0", ".","=" };
     private  JButton[] padkeys = new JButton[PADKEYS.length];
     private JTextField resultText = new JTextField("0");
+    public Programmer(){
+
+    }
     public JPanel init(){
         // 文本框中的内容采用右对齐方式
         resultText.setHorizontalAlignment(JTextField.RIGHT);
