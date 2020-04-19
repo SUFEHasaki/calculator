@@ -24,7 +24,7 @@ public class BasePanel extends JFrame{
         // 初始化计算器
         init();
         // 设置计算器的背景颜色
-        this.setBackground(Color.LIGHT_GRAY);
+//        this.setBackground(Color.WHITE);
         this.setTitle("Q宝");
         // 在屏幕(500, 300)坐标处显示计算器
         this.setLocation(500, 300);

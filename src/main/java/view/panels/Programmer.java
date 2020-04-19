@@ -17,7 +17,6 @@ public class Programmer{
     private ClearButton clearButton=new ClearButton(postfix,resultText);
     private DeleteButton deleteButton=new DeleteButton();
     private final String[] RESULTKEYS={"<<",">>","="};
-    private final String[] RESULTOPERATORS={"<<",">>","="};
     private ResultButton[] resultButtons=new ResultButton[3];
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "A", "B","C","D","E","F","-"};
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];
@@ -33,7 +32,7 @@ public class Programmer{
     public JPanel init(){
         //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix);
             //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
