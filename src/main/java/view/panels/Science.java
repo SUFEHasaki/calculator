@@ -37,15 +37,15 @@ public class Science{
 
     }
     public JPanel init(){
-        //      初始化5个结果按钮
+//      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
             resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix);
-        //      初始化10个数字按钮
+            //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,resultText);
         }
-       //        初始化27个运算符按钮
+        //        初始化27个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {
             operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORS[i],postfix,resultText,pointButton);
         }
@@ -62,7 +62,7 @@ public class Science{
         memPanel.add(stoButton);
 
         JPanel padPanel = new JPanel();
-        padPanel.setBackground(Color.WHITE);
+//        padPanel.setBackground(Color.WHITE);
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
         padPanel.add(resultButtons[0]);padPanel.add(resultButtons[1]);padPanel.add(clearButton);padPanel.add(deleteButton);
         padPanel.add(resultButtons[2]);padPanel.add(operatorButtons[18]);padPanel.add(numberButtons[10]);padPanel.add(numberButtons[11]);
@@ -96,6 +96,7 @@ public class Science{
 //        各种监听器
 
         transkeys[0].addActionListener(e->{
+            System.out.println(2);
             for (int i = 0; i < 6; i++) {
                 leftPanel.remove(i+1);
                 leftPanel.add(operatorButtons[i+6],i+1);

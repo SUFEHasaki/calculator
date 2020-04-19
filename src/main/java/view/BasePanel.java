@@ -18,6 +18,9 @@ public class BasePanel extends JFrame{
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
+//    private JPanel science=new Science().init();
+//    private JPanel programmer=new Programmer().init();
+//    private JPanel transformer=new Transformer().init();
     private Navigator navigator=new Navigator();
     public BasePanel(){
         super();

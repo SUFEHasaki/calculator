@@ -2,9 +2,6 @@ package myComponent.button;
 
 import myComponent.MyTextField;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class ClearButton extends MyButton {
     public ClearButton(StringBuilder postfix, MyTextField resultText){
         super();

@@ -1,11 +1,7 @@
 package view.panels;
-
-
 import myComponent.*;
 import myComponent.button.*;
 import myComponent.comboBox.*;
-
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,7 +15,7 @@ public class Transformer {
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];
     private PointButton pointButton=new PointButton(postfix,rawText);
 //    private  OperatorButton[] padkeys = new OperatorButton[PADKEYS.length];
-    private TransMenu menu=new TransMenu();
+    private TransMenu menu;
     private CurrencyComboBox[] currency=new CurrencyComboBox[]{new CurrencyComboBox(),new CurrencyComboBox()};
     private LengthComboBox[] length=new LengthComboBox[]{new LengthComboBox(),new LengthComboBox()};
     private MassComboBox[] mass=new MassComboBox[]{new MassComboBox(),new MassComboBox()};
@@ -27,14 +23,15 @@ public class Transformer {
     private TemperatureComboBox[] temperature=new TemperatureComboBox[]{new TemperatureComboBox(),new TemperatureComboBox()};
 
     private MyTextField resultText = new MyTextField("",2);
-    private JLabel label=new JLabel("111111111111111111111111111111111");
+    private TransLabel label=new TransLabel(currency[0],currency[1]);
     public Transformer(){
 
     }
     public JPanel init(){
+        menu=new TransMenu();
         for (int i = 0; i < NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,rawText);
-    }
+        }
         numberButtons[10].setEnabled(false);
         numberButtons[11].setEnabled(false);
         JPanel showPanel=new JPanel();
@@ -60,15 +57,52 @@ public class Transformer {
         transformer.add("Center",showPanel);
         transformer.add("South", padPanel);
 //        变换监听器
-        menu.addActionListener(e->{
-            switch (menu.getSelectedIndex()){
-                case 0:{showPanel.remove(2);showPanel.add(currency[0],2);showPanel.remove(4);showPanel.add(currency[1],4);showPanel.revalidate();break;}
-                case 1:{showPanel.remove(2);showPanel.add(length[0],2);showPanel.remove(4);showPanel.add(length[1],4);showPanel.revalidate();break;}
-                case 2:{showPanel.remove(2);showPanel.add(mass[0],2);showPanel.remove(4);showPanel.add(mass[1],4);showPanel.revalidate();break;}
-                case 3:{showPanel.remove(2);showPanel.add(area[0],2);showPanel.remove(4);showPanel.add(area[1],4);showPanel.revalidate();break;}
-                case 4:{showPanel.remove(2);showPanel.add(temperature[0],2);showPanel.remove(4);showPanel.add(temperature[1],4);showPanel.revalidate();break;}
-            }
-        });
+        menu.addActionListener(
+                e -> {
+                        switch (menu.getSelectedIndex()) {
+                            case 0: {
+                                showPanel.remove(2);
+                                showPanel.add(currency[0], 2);
+                                showPanel.remove(4);
+                                showPanel.add(currency[1], 4);
+                                showPanel.revalidate();
+                                break;
+                            }
+                            case 1: {
+                                showPanel.remove(2);
+                                showPanel.add(length[0], 2);
+                                showPanel.remove(4);
+                                showPanel.add(length[1], 4);
+                                showPanel.revalidate();
+                                break;
+                            }
+                            case 2: {
+                                showPanel.remove(2);
+                                showPanel.add(mass[0], 2);
+                                showPanel.remove(4);
+                                showPanel.add(mass[1], 4);
+                                showPanel.revalidate();
+                                break;
+                            }
+                            case 3: {
+                                showPanel.remove(2);
+                                showPanel.add(area[0], 2);
+                                showPanel.remove(4);
+                                showPanel.add(area[1], 4);
+                                showPanel.revalidate();
+                                break;
+                            }
+                            case 4: {
+                                showPanel.remove(2);
+                                showPanel.add(temperature[0], 2);
+                                showPanel.remove(4);
+                                showPanel.add(temperature[1], 4);
+                                showPanel.revalidate();
+                                break;
+                            }
+                        }
+                }
+        );
         return transformer;
     }
 

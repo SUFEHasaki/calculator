@@ -1,7 +1,5 @@
 package myComponent.button;
 
-import javax.swing.*;
-import java.awt.*;
 
 public class RSTButton extends MyButton {
     public RSTButton(){

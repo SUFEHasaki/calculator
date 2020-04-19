@@ -2,8 +2,6 @@ package myComponent.button;
 
 import myComponent.MyTextField;
 
-import javax.swing.*;
-import java.awt.*;
 
 public class NumberButton extends MyButton {
     public NumberButton(String name,StringBuilder postfix, MyTextField resultText){

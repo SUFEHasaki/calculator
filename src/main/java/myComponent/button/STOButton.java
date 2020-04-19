@@ -1,7 +1,5 @@
 package myComponent.button;
 
-import javax.swing.*;
-import java.awt.*;
 
 public class STOButton extends MyButton {
     public STOButton(){
