@@ -9,10 +9,10 @@ import java.awt.*;
 public class Science{
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
-    private MCButton mcButton=new MCButton();
-    private MplusButton mplusButton=new MplusButton();
-    private MminusButton mminusButton=new MminusButton();
-    private MSButton msButton=new MSButton();
+    private RSTButton rstButton=new RSTButton();
+    private RCLButton rclButton=new RCLButton();
+    private EXMButton exmButton=new EXMButton();
+    private STOButton stoButton =new STOButton();
     private ClearButton clearButton=new ClearButton(postfix,resultText);
     private DeleteButton deleteButton=new DeleteButton();
     private final String[] RESULTKEYS={"1/x","|x|","n!","="};
@@ -56,10 +56,10 @@ public class Science{
 
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
-        memPanel.add(mcButton);
-        memPanel.add(mplusButton);
-        memPanel.add(mminusButton);
-        memPanel.add(msButton);
+        memPanel.add(rstButton);
+        memPanel.add(exmButton);
+        memPanel.add(rclButton);
+        memPanel.add(stoButton);
 
         JPanel padPanel = new JPanel();
         padPanel.setBackground(Color.WHITE);

@@ -3,10 +3,10 @@ package myComponent.button;
 import javax.swing.*;
 import java.awt.*;
 
-public class MSButton extends MyButton {
-    public MSButton(){
+public class RCLButton extends MyButton {
+    public RCLButton(){
         super();
-        this.setText("MS");
+        this.setText("RCL");
 //        this.setForeground(Color.black);
 //        this.setBackground(Color.WHITE);
         this.addActionListener(e -> {

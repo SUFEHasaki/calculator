@@ -3,10 +3,10 @@ package myComponent.button;
 import javax.swing.*;
 import java.awt.*;
 
-public class MplusButton extends MyButton {
-    public MplusButton(){
+public class RSTButton extends MyButton {
+    public RSTButton(){
         super();
-        this.setText("M+");
+        this.setText("RST");
 //        this.setForeground(Color.black);
 //        this.setBackground(Color.WHITE);
         this.addActionListener(e -> {
