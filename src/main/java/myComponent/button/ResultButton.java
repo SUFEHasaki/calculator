@@ -1,11 +1,8 @@
 package myComponent.button;
 
-import javax.swing.*;
-import javax.xml.transform.Result;
-import java.awt.*;
-
 import myComponent.MyTextField;
-import util.*;
+import utils.Compute;
+import utils.Postfix;
 
 public class ResultButton extends MyButton {
     public ResultButton(String name,StringBuilder exp, MyTextField resultText){
