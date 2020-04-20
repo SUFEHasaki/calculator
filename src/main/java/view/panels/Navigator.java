@@ -1,15 +1,13 @@
 package view.panels;
 
+import lombok.Data;
 import myComponent.comboBox.NavigatorMenu;
 
 import javax.swing.*;
 import java.awt.*;
-
+@Data
 public class Navigator{
     private NavigatorMenu menu=new NavigatorMenu();
-    public NavigatorMenu getMenu(){
-        return menu;
-    }
     public JPanel init(){
         JPanel navigator=new JPanel();
        navigator.setLayout(new BorderLayout(3, 5));
