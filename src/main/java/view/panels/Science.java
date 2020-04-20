@@ -11,22 +11,14 @@ public class Science{
     private double[] storageArray = new double[10];
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
-    private MCButton mcButton=new MCButton();
 
-    private MminusButton mminusButton=new MminusButton();
-
-    private RSTButton rstButton=new RSTButton();
-    private RCLButton rclButton=new RCLButton();
-    private EXMButton exmButton=new EXMButton();
-    private STOButton stoButton =new STOButton();
     private ClearButton clearButton=new ClearButton(postfix,resultText);
     private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
     private final String[] RESULTKEYS={"1/x","|x|","exp","n!","="};
     private final String[] RESULTOPERATORS={"?","abs","exp","!","="};
     private ResultButton[] resultButtons=new ResultButton[5];//1/x,|x|,exp,n!,=
-    private DeleteButton deleteButton=new DeleteButton();
-    private final String[] RESULTKEYS={"1/x","|x|","n!","="};
-    private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
+//  private final String[] RESULTKEYS={"1/x","|x|","n!","="};
+//  private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "π", "e","-"};
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];//0,1,2,3,4,5,6,7,8,9
     private PointButton pointButton=new PointButton(postfix,resultText);
@@ -37,12 +29,14 @@ public class Science{
             "log_yx", "e^x","sin", "cos", "tan",
             "sec", "csc", "cot", "exp","(", ")",
             "%", "/", "*", "-", "+"};
-    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","sqrt(", "cbrt(", "yroot", "2^", "blog(", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(", "(", ")", "%", "/", "*", "-", "+"};
+    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","sqrt(", "cbrt(", "yroot", "2^", "blog(", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(","exp", "(", ")", "%", "/", "*", "-", "+"};
 
-    private MSButton msButton=new MSButton(storageArray,postfix,resultText,numberButtons);
-    private MplusButton mplusButton=new MplusButton(storageArray,postfix,resultText,numberButtons);
 
     private OperatorButton[] operatorButtons=new OperatorButton[OPERATORKEYS.length];
+    private RSTButton rstButton=new RSTButton(storageArray,postfix,resultText,numberButtons);
+    private RCLButton rclButton=new RCLButton(storageArray,postfix,resultText,numberButtons);
+    private EXMButton exmButton=new EXMButton(storageArray,postfix,resultText,numberButtons);
+    private STOButton stoButton =new STOButton(storageArray,postfix,resultText,numberButtons);
 //    private  GeneralButton[] leftkeys = new GeneralButton[LEFTKEYS1.length];
 
 
@@ -52,7 +46,7 @@ public class Science{
     public JPanel init(){
 //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix,resultText);
             //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
