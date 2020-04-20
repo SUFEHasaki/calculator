@@ -20,7 +20,7 @@ public class Transformer {
     private LengthComboBox[] length=new LengthComboBox[]{new LengthComboBox(),new LengthComboBox()};
     private MassComboBox[] mass=new MassComboBox[]{new MassComboBox(),new MassComboBox()};
     private AreaComboBox[] area=new AreaComboBox[]{new AreaComboBox(),new AreaComboBox()};
-    private TemperatureComboBox[] temperature=new TemperatureComboBox[]{new TemperatureComboBox(),new TemperatureComboBox()};
+    private SpeedComboBox[] speed=new SpeedComboBox[]{new SpeedComboBox(),new SpeedComboBox()};
 
     private MyTextField resultText = new MyTextField("",2);
     private TransLabel label=new TransLabel(currency[0],currency[1]);
@@ -94,9 +94,9 @@ public class Transformer {
                             }
                             case 4: {
                                 showPanel.remove(2);
-                                showPanel.add(temperature[0], 2);
+                                showPanel.add(speed[0], 2);
                                 showPanel.remove(4);
-                                showPanel.add(temperature[1], 4);
+                                showPanel.add(speed[1], 4);
                                 showPanel.revalidate();
                                 break;
                             }
