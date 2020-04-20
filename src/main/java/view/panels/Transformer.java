@@ -16,19 +16,22 @@ public class Transformer {
     private PointButton pointButton=new PointButton(postfix,rawText);
 //    private  OperatorButton[] padkeys = new OperatorButton[PADKEYS.length];
     private TransMenu menu;
-    private CurrencyComboBox[] currency=new CurrencyComboBox[]{new CurrencyComboBox(),new CurrencyComboBox()};
-    private LengthComboBox[] length=new LengthComboBox[]{new LengthComboBox(),new LengthComboBox()};
-    private MassComboBox[] mass=new MassComboBox[]{new MassComboBox(),new MassComboBox()};
-    private AreaComboBox[] area=new AreaComboBox[]{new AreaComboBox(),new AreaComboBox()};
-    private SpeedComboBox[] speed=new SpeedComboBox[]{new SpeedComboBox(),new SpeedComboBox()};
+    private UnitsComboBox[] unitsComboBoxes=new UnitsComboBox[2];
+//    private CurrencyComboBox[] currency=new CurrencyComboBox[]{new CurrencyComboBox(),new CurrencyComboBox()};
+//    private LengthComboBox[] length=new LengthComboBox[]{new LengthComboBox(),new LengthComboBox()};
+//    private MassComboBox[] mass=new MassComboBox[]{new MassComboBox(),new MassComboBox()};
+//    private AreaComboBox[] area=new AreaComboBox[]{new AreaComboBox(),new AreaComboBox()};
+//    private SpeedComboBox[] speed=new SpeedComboBox[]{new SpeedComboBox(),new SpeedComboBox()};
 
     private MyTextField resultText = new MyTextField("",2);
-    private TransLabel label=new TransLabel(currency[0],currency[1]);
-    public Transformer(){
+    private TransLabel label=new TransLabel();
 
-    }
     public JPanel init(){
-        menu=new TransMenu();
+        unitsComboBoxes[0]=new UnitsComboBox();
+        unitsComboBoxes[1]=new UnitsComboBox();
+        unitsComboBoxes[0].addFormText(label);
+        unitsComboBoxes[1].addLatterText(label);
+        menu=new TransMenu(unitsComboBoxes);
         for (int i = 0; i < NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,rawText);
         }
@@ -38,9 +41,9 @@ public class Transformer {
         showPanel.setLayout(new GridLayout(6, 1, 3, 3));
         showPanel.add(menu);
         showPanel.add(rawText);
-        showPanel.add(currency[0]);
+        showPanel.add(unitsComboBoxes[0]);
         showPanel.add(resultText);
-        showPanel.add(currency[1]);
+        showPanel.add(unitsComboBoxes[1]);
         showPanel.add(label);
 
         JPanel padPanel = new JPanel();
@@ -57,52 +60,52 @@ public class Transformer {
         transformer.add("Center",showPanel);
         transformer.add("South", padPanel);
 //        变换监听器
-        menu.addActionListener(
-                e -> {
-                        switch (menu.getSelectedIndex()) {
-                            case 0: {
-                                showPanel.remove(2);
-                                showPanel.add(currency[0], 2);
-                                showPanel.remove(4);
-                                showPanel.add(currency[1], 4);
-                                showPanel.revalidate();
-                                break;
-                            }
-                            case 1: {
-                                showPanel.remove(2);
-                                showPanel.add(length[0], 2);
-                                showPanel.remove(4);
-                                showPanel.add(length[1], 4);
-                                showPanel.revalidate();
-                                break;
-                            }
-                            case 2: {
-                                showPanel.remove(2);
-                                showPanel.add(mass[0], 2);
-                                showPanel.remove(4);
-                                showPanel.add(mass[1], 4);
-                                showPanel.revalidate();
-                                break;
-                            }
-                            case 3: {
-                                showPanel.remove(2);
-                                showPanel.add(area[0], 2);
-                                showPanel.remove(4);
-                                showPanel.add(area[1], 4);
-                                showPanel.revalidate();
-                                break;
-                            }
-                            case 4: {
-                                showPanel.remove(2);
-                                showPanel.add(speed[0], 2);
-                                showPanel.remove(4);
-                                showPanel.add(speed[1], 4);
-                                showPanel.revalidate();
-                                break;
-                            }
-                        }
-                }
-        );
+//        menu.addActionListener(
+//                e -> {
+//                        switch (menu.getSelectedIndex()) {
+//                            case 0: {
+//                                showPanel.remove(2);
+//                                showPanel.add(currency[0], 2);
+//                                showPanel.remove(4);
+//                                showPanel.add(currency[1], 4);
+//                                showPanel.revalidate();
+//                                break;
+//                            }
+//                            case 1: {
+//                                showPanel.remove(2);
+//                                showPanel.add(length[0], 2);
+//                                showPanel.remove(4);
+//                                showPanel.add(length[1], 4);
+//                                showPanel.revalidate();
+//                                break;
+//                            }
+//                            case 2: {
+//                                showPanel.remove(2);
+//                                showPanel.add(mass[0], 2);
+//                                showPanel.remove(4);
+//                                showPanel.add(mass[1], 4);
+//                                showPanel.revalidate();
+//                                break;
+//                            }
+//                            case 3: {
+//                                showPanel.remove(2);
+//                                showPanel.add(area[0], 2);
+//                                showPanel.remove(4);
+//                                showPanel.add(area[1], 4);
+//                                showPanel.revalidate();
+//                                break;
+//                            }
+//                            case 4: {
+//                                showPanel.remove(2);
+//                                showPanel.add(speed[0], 2);
+//                                showPanel.remove(4);
+//                                showPanel.add(speed[1], 4);
+//                                showPanel.revalidate();
+//                                break;
+//                            }
+//                        }
+//                }
+//        );
         return transformer;
     }
 

@@ -1,9 +1,17 @@
 package myComponent;
 
-import javax.swing.*;
+import lombok.Data;
 
+import javax.swing.*;
+@Data
 public class TransLabel extends JLabel {
-    public TransLabel(JComboBox<String> comboBox1,JComboBox<String> comboBox2){
-        this.setText(comboBox1.getItemAt(0)+"="+comboBox2.getItemAt(0));
+    private String formerText="";
+    private String latterText="";
+    public TransLabel(){
+        super();
+//        this.setText("1 人民币(CNY)=1.0 人民币(CNY)");
+    }
+    public void updateText(){
+        this.setText(formerText+"="+latterText);
     }
 }

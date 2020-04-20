@@ -13,5 +13,6 @@ public class RadixButton extends JButton {
         this.addActionListener(e -> {
             //进制转换逻辑
         });
+
     }
 }
