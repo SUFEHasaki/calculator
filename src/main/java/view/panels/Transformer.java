@@ -13,7 +13,7 @@ public class Transformer {
     private StringBuilder postfix = new StringBuilder();
     private MyTextField rawText = new MyTextField("0",2);
     private ClearButton clearButton=new ClearButton(postfix,rawText);
-    private DeleteButton deleteButton=new DeleteButton();
+    private DeleteButton deleteButton=new DeleteButton(postfix,rawText);
     private  final String[] NUMBERKEYS = {  "7", "8", "9", "4", "5", "6",
             "1", "2", "3", "0","","" };
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];

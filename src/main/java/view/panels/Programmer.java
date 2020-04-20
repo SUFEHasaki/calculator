@@ -8,14 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Programmer{
+    private double[] storageArray = new double[10];
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
     private MCButton mcButton=new MCButton();
-    private MplusButton mplusButton=new MplusButton();
+
     private MminusButton mminusButton=new MminusButton();
-    private MSButton msButton=new MSButton();
+
     private ClearButton clearButton=new ClearButton(postfix,resultText);
-    private DeleteButton deleteButton=new DeleteButton();
+    private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
     private final String[] RESULTKEYS={"<<",">>","="};
     private final String[] RESULTOPERATORS={"<<",">>","="};
     private ResultButton[] resultButtons=new ResultButton[3];
@@ -27,13 +28,15 @@ public class Programmer{
     private final  String[] OPERATORS ={"&","|","!","^", "(", ")", "%", "/", "*", "-",  "+","."};
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
 
+    private MplusButton mplusButton=new MplusButton(storageArray,postfix,resultText,numberButtons);
+    private MSButton msButton=new MSButton(storageArray,postfix,resultText,numberButtons);
     public Programmer(){
 
     }
     public JPanel init(){
         //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix,resultText);
             //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {

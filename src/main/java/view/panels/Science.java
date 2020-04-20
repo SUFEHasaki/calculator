@@ -7,14 +7,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Science{
+
+    private double[] storageArray = new double[10];
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
     private MCButton mcButton=new MCButton();
-    private MplusButton mplusButton=new MplusButton();
+
     private MminusButton mminusButton=new MminusButton();
-    private MSButton msButton=new MSButton();
+
     private ClearButton clearButton=new ClearButton(postfix,resultText);
-    private DeleteButton deleteButton=new DeleteButton();
+    private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
     private final String[] RESULTKEYS={"1/x","|x|","exp","n!","="};
     private final String[] RESULTOPERATORS={"?","abs","exp","!","="};
     private ResultButton[] resultButtons=new ResultButton[5];//1/x,|x|,exp,n!,=
@@ -28,10 +30,14 @@ public class Science{
             "log_yx", "e^x","sin", "cos", "tan",
             "sec", "csc", "cot", "(", ")",
             "%", "/", "*", "-", "+"};
-    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","2√", "3√", "√", "2^", "log_yx", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(", "(", ")", "%", "/", "*", "-", "+"};
+    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","sqrt(", "cbrt(", "yroot", "2^", "blog(", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(", "(", ")", "%", "/", "*", "-", "+"};
+
+    private MSButton msButton=new MSButton(storageArray,postfix,resultText,numberButtons);
+    private MplusButton mplusButton=new MplusButton(storageArray,postfix,resultText,numberButtons);
 
     private OperatorButton[] operatorButtons=new OperatorButton[OPERATORKEYS.length];
 //    private  GeneralButton[] leftkeys = new GeneralButton[LEFTKEYS1.length];
+
 
 
     public Science(){
@@ -40,7 +46,7 @@ public class Science{
     public JPanel init(){
         //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix,resultText);
         //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
