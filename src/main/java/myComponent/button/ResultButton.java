@@ -8,7 +8,7 @@ import myComponent.MyTextField;
 import util.*;
 
 public class ResultButton extends MyButton {
-    public ResultButton(String name,String operator,StringBuilder exp, MyTextField resultText){
+    public ResultButton(String name,StringBuilder exp, MyTextField resultText){
         super();
         this.setText(name);
 //        this.setForeground(Color.black);
@@ -19,18 +19,18 @@ public class ResultButton extends MyButton {
             Compute compute = new Compute(postfix.nifixToPostfix());
             double ans = compute.compute();
 
-            switch (operator){
+            switch (name){
                 case "=" :
                     resultText.setText(String.valueOf(ans));
                     if (exp.length()!=0)
                         exp.delete(0,exp.length());
                     break;
-                case "?" :
-                    ans = 1/ans; resultText.setText(String.valueOf(ans));
+                case "1/x" :
+                    ans = 1.0/ans; resultText.setText(String.valueOf(ans));
                     exp.delete(0,exp.length());
                     exp.append(ans);
                     break;
-                case "!" :
+                case "n!" :
                     int temp = 1, num = 1;
                     while (temp <= ans) {
                         num=num*temp;
@@ -41,16 +41,11 @@ public class ResultButton extends MyButton {
                     exp.delete(0,exp.length());
                     exp.append(ans);
                     break;
-                case "abs" :
+                case "|x|" :
                     ans = Math.abs(ans);
                     resultText.setText(String.valueOf(ans));
                     exp.delete(0,exp.length());
                     exp.append(ans);
-                    break;
-                case "exp" :
-                    resultText.setText(String.valueOf(ans)+"*10^");
-                    exp.delete(0,exp.length());
-                    exp.append(String.valueOf(ans)+"*10^");
                     break;
             }
         });

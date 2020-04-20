@@ -14,11 +14,9 @@ public class Science{
 
     private ClearButton clearButton=new ClearButton(postfix,resultText);
     private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
-    private final String[] RESULTKEYS={"1/x","|x|","exp","n!","="};
-    private final String[] RESULTOPERATORS={"?","abs","exp","!","="};
-    private ResultButton[] resultButtons=new ResultButton[5];//1/x,|x|,exp,n!,=
-//  private final String[] RESULTKEYS={"1/x","|x|","n!","="};
-//  private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
+
+    private final String[] RESULTKEYS={"1/x","|x|","n!","="};
+    private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "π", "e","-"};
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];//0,1,2,3,4,5,6,7,8,9
     private PointButton pointButton=new PointButton(postfix,resultText);
@@ -46,7 +44,7 @@ public class Science{
     public JPanel init(){
 //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix,resultText);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix,resultText);
             //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
