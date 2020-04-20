@@ -24,14 +24,15 @@ public class Transformer {
 //    private SpeedComboBox[] speed=new SpeedComboBox[]{new SpeedComboBox(),new SpeedComboBox()};
 
     private MyTextField resultText = new MyTextField("",2);
-    private TransLabel label=new TransLabel();
+    private TransLabel label;
 
     public JPanel init(){
-        unitsComboBoxes[0]=new UnitsComboBox();
-        unitsComboBoxes[1]=new UnitsComboBox();
-        unitsComboBoxes[0].addFormText(label);
+        label=new TransLabel();
+        unitsComboBoxes[0]=new UnitsComboBox(label);
+        unitsComboBoxes[1]=new UnitsComboBox(label);
+        unitsComboBoxes[0].addFormerText(label);
         unitsComboBoxes[1].addLatterText(label);
-        menu=new TransMenu(unitsComboBoxes);
+        menu=new TransMenu(unitsComboBoxes,label);
         for (int i = 0; i < NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,rawText);
         }

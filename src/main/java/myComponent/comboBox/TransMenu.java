@@ -1,9 +1,11 @@
 package myComponent.comboBox;
 
+import myComponent.TransLabel;
+
 import javax.swing.JComboBox;
 
 public class TransMenu extends JComboBox<String> {
-    public TransMenu(UnitsComboBox[] unitsComboBoxes){
+    public TransMenu(UnitsComboBox[] unitsComboBoxes, TransLabel label){
         super();
         this.addItem("货币");
         this.addItem("长度");
@@ -13,21 +15,24 @@ public class TransMenu extends JComboBox<String> {
         this.addActionListener(e -> {
                switch (this.getSelectedIndex()){
                    case 0:{
+                       label.setNo(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
+//                           unitsComboBox.setSelectedIndex(-1);
                            unitsComboBox.removeAllItems();
-                           unitsComboBox.addItem("CNY");
-                           unitsComboBox.addItem("USD");
-                           unitsComboBox.addItem("GBP");
-                           unitsComboBox.addItem("EUR");
-                           unitsComboBox.addItem("KRW");
-                           unitsComboBox.addItem("JPY");
-                           unitsComboBox.addItem("TWD");
-                           unitsComboBox.addItem("MOP");
+                           unitsComboBox.addItem("人民币(CNY)");
+                           unitsComboBox.addItem("美元(USD)");
+                           unitsComboBox.addItem("英磅(GBP)");
+                           unitsComboBox.addItem("欧元(EUR)");
+                           unitsComboBox.addItem("韩元(KRW)");
+                           unitsComboBox.addItem("日元(JPY)");
+                           unitsComboBox.addItem("新台币(TWD)");
+                           unitsComboBox.addItem("澳门币(MOP)");
                            unitsComboBox.setSelectedIndex(0);
                        }
                        break;
                    }
                    case 1:{
+                       label.setNo(1);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("微米");
@@ -44,6 +49,7 @@ public class TransMenu extends JComboBox<String> {
                        break;
                    }
                    case 2:{
+                       label.setNo(2);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("克");
@@ -58,6 +64,7 @@ public class TransMenu extends JComboBox<String> {
                        break;
                    }
                    case 3:{
+                       label.setNo(3);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("平方厘米");
@@ -72,6 +79,7 @@ public class TransMenu extends JComboBox<String> {
                        break;
                    }
                    case 4:{
+                       label.setNo(4);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("米/秒");
