@@ -7,14 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Science{
+
+    private double[] storageArray = new double[10];
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
-    private RSTButton rstButton=new RSTButton();
-    private RCLButton rclButton=new RCLButton();
-    private EXMButton exmButton=new EXMButton();
-    private STOButton stoButton =new STOButton();
+
     private ClearButton clearButton=new ClearButton(postfix,resultText);
-    private DeleteButton deleteButton=new DeleteButton();
+    private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
+
     private final String[] RESULTKEYS={"1/x","|x|","n!","="};
     private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "π", "e","-"};
@@ -27,9 +27,14 @@ public class Science{
             "log_yx", "e^x","sin", "cos", "tan",
             "sec", "csc", "cot", "exp","(", ")",
             "%", "/", "*", "-", "+"};
-    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","2√", "3√", "√", "2^", "log_yx", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(", "*10^","(", ")", "%", "/", "*", "-", "+"};
+    private final  String[] OPERATORS = { "^2", "^3", "^", "10^", "log(", "ln(","sqrt(", "cbrt(", "yroot", "2^", "blog(", "e^","sin(", "cos(", "tan(", "sec(", "csc(", "cot(","exp", "(", ")", "%", "/", "*", "-", "+"};
+
 
     private OperatorButton[] operatorButtons=new OperatorButton[OPERATORKEYS.length];
+    private RSTButton rstButton=new RSTButton(storageArray,postfix,resultText,numberButtons);
+    private RCLButton rclButton=new RCLButton(storageArray,postfix,resultText,numberButtons);
+    private EXMButton exmButton=new EXMButton(storageArray,postfix,resultText,numberButtons);
+    private STOButton stoButton =new STOButton(storageArray,postfix,resultText,numberButtons);
 //    private  GeneralButton[] leftkeys = new GeneralButton[LEFTKEYS1.length];
 
 
@@ -39,7 +44,7 @@ public class Science{
     public JPanel init(){
 //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix,resultText);
             //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
@@ -96,7 +101,7 @@ public class Science{
 //        各种监听器
 
         transkeys[0].addActionListener(e->{
-            System.out.println(2);
+       //     System.out.println(2);
             for (int i = 0; i < 6; i++) {
                 leftPanel.remove(i+1);
                 leftPanel.add(operatorButtons[i+6],i+1);
