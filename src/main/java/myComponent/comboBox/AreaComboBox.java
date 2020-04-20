@@ -11,7 +11,7 @@ public class AreaComboBox extends JComboBox<String> {
         this.addItem("平方公里");
         this.addItem("平方英寸");
         this.addItem("平方英尺");
-        this.addItem("英亩");
+        this.addItem("市亩");
     }
 
 }
