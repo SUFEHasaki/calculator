@@ -15,6 +15,10 @@ public class Programmer{
 
     private MminusButton mminusButton=new MminusButton();
 
+    private RSTButton rstButton=new RSTButton();
+    private RCLButton rclButton=new RCLButton();
+    private EXMButton exmButton=new EXMButton();
+    private STOButton stoButton =new STOButton();
     private ClearButton clearButton=new ClearButton(postfix,resultText);
     private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
     private final String[] RESULTKEYS={"<<",">>","="};
@@ -25,7 +29,7 @@ public class Programmer{
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
     private  final String[] OPERATORKEYS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
-    private final  String[] OPERATORS ={"&","|","!","^", "(", ")", "%", "/", "*", "-",  "+","."};
+//    private final  String[] OPERATORS ={"&","|","!","^", "(", ")", "%", "/", "*", "-",  "+","."};
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
 
     private MplusButton mplusButton=new MplusButton(storageArray,postfix,resultText,numberButtons);
@@ -34,9 +38,9 @@ public class Programmer{
 
     }
     public JPanel init(){
-        //      初始化5个结果按钮
+//      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],RESULTOPERATORS[i],postfix,resultText);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix);
             //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
@@ -44,7 +48,7 @@ public class Programmer{
         }
         //        初始化13个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {
-            operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORS[i],postfix,resultText,null);
+            operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORKEYS[i],postfix,resultText,null);
         }
         //       初始化4个运算符变换按钮
         for (int i = 0; i < RADIXKEYS.length; i++) {
@@ -53,10 +57,10 @@ public class Programmer{
 
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
-        memPanel.add(mcButton);
-        memPanel.add(mplusButton);
-        memPanel.add(mminusButton);
-        memPanel.add(msButton);
+        memPanel.add(rstButton);
+        memPanel.add(exmButton);
+        memPanel.add(rclButton);
+        memPanel.add(stoButton);
 
         JPanel padPanel = new JPanel();
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));

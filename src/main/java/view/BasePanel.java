@@ -16,13 +16,16 @@ public class BasePanel extends JFrame{
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
+//    private JPanel science=new Science().init();
+//    private JPanel programmer=new Programmer().init();
+//    private JPanel transformer=new Transformer().init();
     private Navigator navigator=new Navigator();
     public BasePanel(){
         super();
         // 初始化计算器
         init();
         // 设置计算器的背景颜色
-        this.setBackground(Color.LIGHT_GRAY);
+//        this.setBackground(Color.WHITE);
         this.setTitle("Q宝");
         // 在屏幕(500, 300)坐标处显示计算器
         this.setLocation(500, 300);

@@ -1,12 +1,10 @@
 package myComponent.button;
 
-import javax.swing.*;
-import java.awt.*;
 
-public class MCButton extends MyButton {
-    public MCButton(){
+public class EXMButton extends MyButton {
+    public EXMButton(){
         super();
-        this.setText("MC");
+        this.setText("EXM");
 //        this.setForeground(Color.black);
 //        this.setBackground(Color.WHITE);
         this.addActionListener(e -> {

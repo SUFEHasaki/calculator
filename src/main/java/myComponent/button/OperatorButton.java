@@ -1,8 +1,6 @@
 package myComponent.button;
-
 import myComponent.MyTextField;
 
-import javax.swing.JButton;
 import java.awt.*;
 
 

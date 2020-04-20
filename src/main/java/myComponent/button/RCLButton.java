@@ -5,10 +5,10 @@ import myComponent.MyTextField;
 import javax.swing.*;
 import java.awt.*;
 
-public class MSButton extends MyButton {
-    public MSButton(double[] storageArray,StringBuilder postfix, MyTextField resultText,NumberButton[] numberButtons){
+public class RCLButton extends MyButton {
+    public RCLButton(double[] storageArray,StringBuilder postfix, MyTextField resultText,NumberButton[] numberButtons){
         super();
-        this.setText("MS");
+        this.setText("RCL");
 //        this.setForeground(Color.black);
 //        this.setBackground(Color.WHITE);
         this.addActionListener(e -> {

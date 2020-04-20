@@ -12,6 +12,7 @@ public class MyTextField extends JTextField {
         this.setEditable(false);
         // 设置文本框背景颜色为透明
         this.setOpaque(true);
+
     }
 
 }
