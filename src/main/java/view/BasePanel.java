@@ -1,12 +1,11 @@
 package view;
 
+import utils.UpdateRate;
 import view.panels.*;
 
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BasePanel extends JFrame{
     public static void main(String[] args) {
@@ -16,26 +15,22 @@ public class BasePanel extends JFrame{
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
-//    private JPanel science=new Science().init();
-//    private JPanel programmer=new Programmer().init();
-//    private JPanel transformer=new Transformer().init();
+
     private Navigator navigator=new Navigator();
     public BasePanel(){
         super();
         // 初始化计算器
         init();
         // 设置计算器的背景颜色
-//        this.setBackground(Color.WHITE);
         this.setTitle("Q宝");
         // 在屏幕(500, 300)坐标处显示计算器
         this.setLocation(500, 300);
-        this.setSize(350,400);
+        this.setSize(350,450);
         // 不许修改计算器的大小
         this.setResizable(false);
-        // 使计算器中各组件大小合适
-//        this.pack();
         //关闭退出
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        UpdateRate.readFile();
     }
     private void init(){
         Container container=getContentPane();

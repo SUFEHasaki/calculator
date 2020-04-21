@@ -37,13 +37,13 @@ public class Transformer {
         clearButton.transformerListener(postfix,rawText,resultText);
         deleteButton.transformerListener(postfix,rawText,resultText,label);
         JPanel showPanel=new JPanel();
-        showPanel.setLayout(new GridLayout(6, 1, 3, 3));
+        showPanel.setLayout(new GridLayout(5, 1, 3, 3));
         showPanel.add(menu);
         showPanel.add(rawText);
         showPanel.add(unitsComboBoxes[0]);
         showPanel.add(resultText);
         showPanel.add(unitsComboBoxes[1]);
-        showPanel.add(label);
+//        showPanel.add(label);
 
         JPanel padPanel = new JPanel();
         // 用网格布局器，4行，4列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
@@ -56,20 +56,10 @@ public class Transformer {
 
         JPanel transformer=new JPanel();
         transformer.setLayout(new BorderLayout(3, 5));
-        transformer.add("Center",showPanel);
+        transformer.add("North",showPanel);
+        transformer.add("Center",label);
         transformer.add("South", padPanel);
 
-//        实时响应监听器
-//        deleteButton.addActionListener(e -> {
-//            double raw=Double.parseDouble(rawText.getText());
-//            switch (label.getNo()){
-//                case 0:{resultText.setText(String.valueOf(raw* Constant.CURRENCY[label.getRow()][label.getCol()]));}
-//                case 1:{resultText.setText(String.valueOf(raw* Constant.LENGTH[label.getRow()][label.getCol()]));}
-//                case 2:{resultText.setText(String.valueOf(raw* Constant.MASS[label.getRow()][label.getCol()]));}
-//                case 3:{resultText.setText(String.valueOf(raw* Constant.AREA[label.getRow()][label.getCol()]));}
-//                case 4:{resultText.setText(String.valueOf(raw* Constant.SPEED[label.getRow()][label.getCol()]));}
-//            }
-//        });
         return transformer;
     }
 
