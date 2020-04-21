@@ -14,8 +14,8 @@ public class Programmer{
 
 
 
-    private ClearButton clearButton=new ClearButton(postfix,resultText);
-    private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
+    private ClearButton clearButton=new ClearButton();
+    private DeleteButton deleteButton=new DeleteButton();
     private final String[] RESULTKEYS={"<<",">>","="};
     private ResultButton[] resultButtons=new ResultButton[3];
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "A", "B","C","D","E","F","-"};
@@ -40,7 +40,8 @@ public class Programmer{
             //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
-            numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,resultText);
+            numberButtons[i] = new NumberButton(NUMBERKEYS[i]);
+            numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);
         }
         //        初始化13个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {
@@ -50,7 +51,8 @@ public class Programmer{
         for (int i = 0; i < RADIXKEYS.length; i++) {
             radixButtons[i] = new RadixButton(RADIXKEYS[i],postfix,resultText);
         }
-
+        clearButton.generalListener(postfix,resultText);
+        deleteButton.generalListener(postfix,resultText);
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
         memPanel.add(rstButton);

@@ -17,11 +17,10 @@ public class TransLabel extends JLabel {
     public TransLabel(){
         super();
         this.setForeground(Color.BLUE);
-//        this.setText("1 人民币(CNY)=1.0 人民币(CNY)");
     }
     public void updateText(){
         switch(no){
-            case 0:{ rate=Constant.CURRENCY[row][col];break; }
+            case 0:{rate=Constant.CURRENCY[row][col];break; }
             case 1:{rate=Constant.LENGTH[row][col];break;}
             case 2:{rate=Constant.MASS[row][col];break;}
             case 3:{rate=Constant.AREA[row][col];break;}

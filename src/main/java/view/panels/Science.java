@@ -12,8 +12,8 @@ public class Science{
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
 
-    private ClearButton clearButton=new ClearButton(postfix,resultText);
-    private DeleteButton deleteButton=new DeleteButton(postfix,resultText);
+    private ClearButton clearButton=new ClearButton();
+    private DeleteButton deleteButton=new DeleteButton();
 
     private final String[] RESULTKEYS={"1/x","|x|","n!","="};
     private ResultButton[] resultButtons=new ResultButton[RESULTKEYS.length];//1/x,|x|,exp,n!,=
@@ -48,7 +48,8 @@ public class Science{
             //      初始化10个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
-            numberButtons[i] = new NumberButton(NUMBERKEYS[i],postfix,resultText);
+            numberButtons[i] = new NumberButton(NUMBERKEYS[i]);
+            numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);
         }
         //        初始化27个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {
@@ -58,7 +59,8 @@ public class Science{
         for (int i = 0; i < TRANSKEYS.length; i++) {
             transkeys[i] = new TransButton(TRANSKEYS[i]);
         }
-
+        clearButton.generalListener(postfix,resultText);
+        deleteButton.generalListener(postfix,resultText);
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
         memPanel.add(rstButton);
