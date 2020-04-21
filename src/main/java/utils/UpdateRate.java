@@ -47,8 +47,8 @@ public class UpdateRate {
             String []FROM={"CNY","USD","GBP","EUR","KRW","JPY","TWD","MOP"};
             String []TO={"CNY","USD","GBP","EUR","KRW","JPY","TWD","MOP"};
             WebClient webClient = new WebClient(BrowserVersion.CHROME);
-            webClient.getOptions().setCssEnabled(false); // 取消 CSS 支持 ✔
-            webClient.getOptions().setJavaScriptEnabled(false); // 取消 JavaScript支持 ✔
+            webClient.getOptions().setCssEnabled(false); // 取消 CSS 支持
+            webClient.getOptions().setJavaScriptEnabled(false); // 取消 JavaScript支持
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             writer.write("更新时间"+df.format(new Date()));
             writer.flush();
