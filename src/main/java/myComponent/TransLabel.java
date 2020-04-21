@@ -36,7 +36,7 @@ public class TransLabel extends JLabel {
                     e.printStackTrace();
                 }
 //                this.addMouseListener();
-                
+
                 return; }
             case 1:{rate=Constant.LENGTH[row][col];break;}
             case 2:{rate=Constant.MASS[row][col];break;}
