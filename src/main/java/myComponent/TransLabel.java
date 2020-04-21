@@ -4,6 +4,8 @@ import lombok.Data;
 import utils.Constant;
 
 import javax.swing.*;
+import java.awt.*;
+
 @Data
 public class TransLabel extends JLabel {
     private String formerText="";
@@ -14,6 +16,7 @@ public class TransLabel extends JLabel {
     private double rate;
     public TransLabel(){
         super();
+        this.setForeground(Color.BLUE);
 //        this.setText("1 人民币(CNY)=1.0 人民币(CNY)");
     }
     public void updateText(){

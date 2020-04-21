@@ -16,6 +16,8 @@ public class TransMenu extends JComboBox<String> {
                switch (this.getSelectedIndex()){
                    case 0:{
                        label.setNo(0);
+                       label.setRow(0);
+                       label.setCol(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
 //                           unitsComboBox.setSelectedIndex(-1);
                            unitsComboBox.removeAllItems();
@@ -33,6 +35,8 @@ public class TransMenu extends JComboBox<String> {
                    }
                    case 1:{
                        label.setNo(1);
+                       label.setRow(0);
+                       label.setCol(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("微米");
@@ -50,6 +54,8 @@ public class TransMenu extends JComboBox<String> {
                    }
                    case 2:{
                        label.setNo(2);
+                       label.setRow(0);
+                       label.setCol(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("克");
@@ -65,6 +71,8 @@ public class TransMenu extends JComboBox<String> {
                    }
                    case 3:{
                        label.setNo(3);
+                       label.setRow(0);
+                       label.setCol(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("平方厘米");
@@ -80,6 +88,8 @@ public class TransMenu extends JComboBox<String> {
                    }
                    case 4:{
                        label.setNo(4);
+                       label.setRow(0);
+                       label.setCol(0);
                        for (UnitsComboBox unitsComboBox:unitsComboBoxes){
                            unitsComboBox.removeAllItems();
                            unitsComboBox.addItem("米/秒");

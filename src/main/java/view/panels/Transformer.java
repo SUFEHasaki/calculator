@@ -28,8 +28,8 @@ public class Transformer {
 
     public JPanel init(){
         label=new TransLabel();
-        unitsComboBoxes[0]=new UnitsComboBox(label);
-        unitsComboBoxes[1]=new UnitsComboBox(label);
+        unitsComboBoxes[0]=new UnitsComboBox();
+        unitsComboBoxes[1]=new UnitsComboBox();
         unitsComboBoxes[0].addFormerText(label);
         unitsComboBoxes[1].addLatterText(label);
         menu=new TransMenu(unitsComboBoxes,label);
