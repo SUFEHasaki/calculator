@@ -1,23 +1,39 @@
 package myComponent.button;
 
+import lombok.Data;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
 import utils.Constant;
 
-
+@Data
 public class NumberButton extends MyButton {
+    private double stoNumber=0.0;
     public NumberButton(String name){
         super();
         this.setText(name);
-//        this.addActionListener(e -> {
-//            postfix.append(name);
-//            resultText.setText(postfix.toString());
-//        });
     }
     public void generalListener(String name,StringBuilder postfix, MyTextField resultText){
+        try{
+            this.removeActionListener(this.getActionListeners()[0]);
+        }catch(IndexOutOfBoundsException ignored){}
         this.addActionListener(e -> {
             postfix.append(name);
             resultText.setText(postfix.toString());
+        });
+    }
+    public void STOListener(MyTextField resultText){
+        this.removeActionListener(this.getActionListeners()[0]);
+        this.addActionListener(e -> {
+            stoNumber=1;
+            //计算过程
+//            this.stoNumber=1.0;
+        });
+    }
+    public void RCLListener(MyTextField resultText,StringBuilder postfix){
+        this.removeActionListener(this.getActionListeners()[0]);
+        this.addActionListener(e -> {
+             postfix.append(stoNumber);
+             resultText.setText(postfix.toString());
         });
     }
     public void transformerListener(String name, StringBuilder postfix, MyTextField rawText, MyTextField resultText, TransLabel label){

@@ -10,9 +10,6 @@ public class RadixButton extends JButton {
         this.setText(name);
         this.setForeground(Color.RED);
         this.setBackground(Color.WHITE);
-        this.addActionListener(e -> {
-            //进制转换逻辑
-        });
 
     }
 }

@@ -5,10 +5,10 @@ import myComponent.MyTextField;
 import javax.swing.*;
 import java.awt.*;
 
-public class RCLButton extends MyButton {
-    public RCLButton(){
+public class RECButton extends MyButton {
+    public RECButton(){
         super();
-        this.setText("RCL");
+        this.setText("REC");
         this.addActionListener(e -> {
 
         });

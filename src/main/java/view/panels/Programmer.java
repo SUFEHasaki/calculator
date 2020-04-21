@@ -8,11 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Programmer{
-    private double[] storageArray = new double[10];
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
-
-
 
     private ClearButton clearButton=new ClearButton();
     private DeleteButton deleteButton=new DeleteButton();
@@ -23,13 +20,12 @@ public class Programmer{
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
     private  final String[] OPERATORKEYS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
-//    private final  String[] OPERATORS ={"&","|","!","^", "(", ")", "%", "/", "*", "-",  "+","."};
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
 
-    private RSTButton rstButton=new RSTButton(storageArray,postfix,resultText,numberButtons);
-    private RCLButton rclButton=new RCLButton(storageArray,postfix,resultText,numberButtons);
-    private EXMButton exmButton=new EXMButton(storageArray,postfix,resultText,numberButtons);
-    private STOButton stoButton =new STOButton(storageArray,postfix,resultText,numberButtons);
+    private RECButton recButton;
+    private RCLButton rclButton;
+    private EXMButton exmButton;
+    private STOButton stoButton;
     public Programmer(){
 
     }
@@ -51,11 +47,15 @@ public class Programmer{
         for (int i = 0; i < RADIXKEYS.length; i++) {
             radixButtons[i] = new RadixButton(RADIXKEYS[i],postfix,resultText);
         }
+        recButton=new RECButton();
+        rclButton=new RCLButton();
+        exmButton=new EXMButton(numberButtons);
+        stoButton =new STOButton();
         clearButton.generalListener(postfix,resultText);
         deleteButton.generalListener(postfix,resultText);
         JPanel memPanel = new JPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
-        memPanel.add(rstButton);
+        memPanel.add(recButton);
         memPanel.add(exmButton);
         memPanel.add(rclButton);
         memPanel.add(stoButton);
@@ -90,7 +90,7 @@ public class Programmer{
         programmer.add("South",buttonPanel);
 
 
-        //各种监听器
+        //特殊监听器
         radixButtons[0].addActionListener(e->{
             for (int i=10;i<16;i++){
                 numberButtons[i].setEnabled(false);
@@ -125,6 +125,7 @@ public class Programmer{
             leftPanel.remove(radixButtons[3]);
             leftPanel.revalidate();
         });
+
         return programmer;
     }
 }
