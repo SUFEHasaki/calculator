@@ -50,7 +50,7 @@ public class UpdateRate {
             webClient.getOptions().setCssEnabled(false); // 取消 CSS 支持
             webClient.getOptions().setJavaScriptEnabled(false); // 取消 JavaScript支持
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            writer.write("更新时间"+df.format(new Date()));
+            writer.write("更新时间"+df.format(new Date())+"\n");
             writer.flush();
             for (String from :FROM){
                 for (String to:TO){
@@ -62,6 +62,7 @@ public class UpdateRate {
             }
 
             writer.close();
+            readFile();
         } catch (Exception ignored){
 
         }

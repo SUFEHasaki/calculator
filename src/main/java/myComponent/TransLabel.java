@@ -2,9 +2,11 @@ package myComponent;
 
 import lombok.Data;
 import utils.Constant;
+import utils.UpdateRate;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -35,7 +37,29 @@ public class TransLabel extends JLabel {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                this.addMouseListener();
+                if(this.getMouseListeners().length==0){
+                    this.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            TransLabel.super.setEnabled(false);
+                            TransLabel.super.removeMouseListener(TransLabel.super.getMouseListeners()[0]);
+                            UpdateRate.updateRate();
+                            System.out.println(1);
+                            updateText();
+                            TransLabel.super.setEnabled(true);
+                        }
+                        @Override
+                        public void mousePressed(MouseEvent e) { }
+                        @Override
+                        public void mouseReleased(MouseEvent e) { }
+                        @Override
+                        public void mouseEntered(MouseEvent e) { }
+                        @Override
+                        public void mouseExited(MouseEvent e) { }
+                    });
+                }
+
+
 
                 return; }
             case 1:{rate=Constant.LENGTH[row][col];break;}

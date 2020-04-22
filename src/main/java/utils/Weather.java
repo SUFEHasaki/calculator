@@ -5,30 +5,40 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.regex.*;
 
 public class Weather {
-    private static final String PATTERN="\"ip\":\"(.*?)\"";
-    private WebClient webClient = new WebClient(BrowserVersion.CHROME);
+    private static final String IPPATTERN="\"ip\":\"(.*?)\"";
+    private static final String DISTRICT="\"city\":\"(.*?)市?\".*\"county\":\"(.*?)区?\"";
+//    private WebClient webClient = new WebClient(BrowserVersion.CHROME);
     public static void main(String[] args) {
-        System.out.println(getIP());
+        getIP();
     }
-    public static String getIP(){
+    public static void getIP(){
         try{
             WebClient webClient = new WebClient(BrowserVersion.CHROME);
             webClient.getOptions().setCssEnabled(false); // 取消 CSS 支持
             webClient.getOptions().setJavaScriptEnabled(false); // 取消 JavaScript支持
-            HtmlPage page = webClient.getPage("http://vv.video.qq.com/checktime?otype=json");
-            Pattern pattern=Pattern.compile(PATTERN);
-            Matcher m = pattern.matcher(page.asText());
-            page=webClient.getPage(String.format("https://restapi.amap.com/v4/ip?ip=%s&key=0113a13c88697dcea6a445584d535837", m.group(1)));
-            if (m.find()){
-                return m.group(1);
+            webClient.getOptions().setThrowExceptionOnScriptError(false);
+//            webClient
+            String content = webClient.getPage("http://vv.video.qq.com/checktime?otype=json").getWebResponse().getContentAsString();
+//            System.out.println(page.asText());
+            Matcher matcher = Pattern.compile(IPPATTERN).matcher(content);
+            if (matcher.find()){
+                content=webClient.getPage(String.format("http://restapi.amap.com/v4/ip?ip=%s&key=0113a13c88697dcea6a445584d535837", matcher.group(1))).getWebResponse().getContentAsString();
+                matcher = Pattern.compile(DISTRICT).matcher(content);
+                if(matcher.find()){
+//                    System.out.println(matcher.group(1)+ matcher.group(2));
+//                    System.out.println(new String (String.format("https://free-api.heweather.net/s6/weather/now?location=%s,%s&key=2289d83e1f26405392712a2d136ce95b", matcher.group(2), matcher.group(1)).getBytes("unicode"),"unicode"));
+                    content=webClient.getPage(new String (String.format("https://free-api.heweather.net/s6/weather/now?location=%s,%s&key=2289d83e1f26405392712a2d136ce95b", matcher.group(2), matcher.group(1)).getBytes(),"utf-8")).getUrl().toString();
+                    System.out.println(content);
+                }
             }
         }catch (IOException ignored){
 
         }
-        return "";
+
 
     }
 }
