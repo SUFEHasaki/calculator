@@ -62,10 +62,18 @@ public class TransLabel extends JLabel {
 
 
                 return; }
-            case 1:{rate=Constant.LENGTH[row][col];break;}
-            case 2:{rate=Constant.MASS[row][col];break;}
-            case 3:{rate=Constant.AREA[row][col];break;}
-            case 4:{rate=Constant.SPEED[row][col];break;}
+            case 1:{rate=Constant.LENGTH[row][col];
+                      try{this.removeMouseListener(this.getMouseListeners()[0]);}
+                      catch (IndexOutOfBoundsException ignored){}break;}
+            case 2:{rate=Constant.MASS[row][col];
+                try{this.removeMouseListener(this.getMouseListeners()[0]);}
+                catch (IndexOutOfBoundsException ignored){}break;}
+            case 3:{rate=Constant.AREA[row][col];
+                try{this.removeMouseListener(this.getMouseListeners()[0]);}
+                catch (IndexOutOfBoundsException ignored){}break;}
+            case 4:{rate=Constant.SPEED[row][col];
+                try{this.removeMouseListener(this.getMouseListeners()[0]);}
+                catch (IndexOutOfBoundsException ignored){}break;}
             }
             this.setText(formerText+"="+rate+latterText);
         }
