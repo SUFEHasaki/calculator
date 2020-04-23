@@ -40,11 +40,12 @@ public class Science{
     }
     public JPanel init(){
 
-//      初始化5个结果按钮
+        //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix,resultText);
-            //      初始化10个数字按钮
+            resultButtons[i] = new ResultButton(RESULTKEYS[i]);
+            resultButtons[i].scienceListener(RESULTKEYS[i],postfix,resultText);
         }
+        //      初始化10个数字按钮
         for (int i = 0; i <NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i]);
             numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);

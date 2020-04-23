@@ -32,10 +32,26 @@ public class Programmer{
     public Programmer(){
 
     }
+
+    public int systemRecognization(){
+        int ans = 0;
+        if (numberButtons[10].isEnabled())
+            ans = 16;
+        else if (numberButtons[2].isEnabled())
+            ans = 10;
+        else if (numberButtons[0].isEnabled())
+            ans = 8;
+        else
+            ans = 2;
+        return ans;
+    }
+
     public JPanel init(){
 //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
-            resultButtons[i] = new ResultButton(RESULTKEYS[i],postfix,resultText);
+            resultButtons[i] = new ResultButton(RESULTKEYS[i]);
+ //           resultButtons[i].programmerListener(RESULTKEYS[i],postfix,resultText,systemRecognization());
+            //RESULTKEYS[i],postfix,resultText
             //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
@@ -145,6 +161,12 @@ public class Programmer{
             resultText.setText(postfix.toString());
         });
 
+
+        for (int i = 0; i <RESULTKEYS.length; i++) {
+            resultButtons[i].programmerListener(RESULTKEYS[i],postfix,resultText,systemRecognization());
+            //RESULTKEYS[i],postfix,resultText
+            //      初始化16个数字按钮
+        }
         return programmer;
     }
 }

@@ -3,7 +3,6 @@ package myComponent.button;
 import lombok.Data;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
-import utils.Constant;
 import utils.*;
 
 @Data
