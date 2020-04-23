@@ -111,7 +111,7 @@ public class Compute extends Postfix{
                 num.push(Math.tan(num1));
             }
             //计算sec
-            if (c[i] == 'e'){
+            if (c[i] == 'k'){
                 double num1 = num.pop();
                 num.push(1.0/Math.cos(num1));
             }

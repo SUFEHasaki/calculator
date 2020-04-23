@@ -4,6 +4,7 @@ import lombok.Data;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
 import utils.Constant;
+import utils.*;
 
 @Data
 public class NumberButton extends MyButton {
@@ -27,6 +28,12 @@ public class NumberButton extends MyButton {
             stoNumber=1;
             //计算过程
 //            this.stoNumber=1.0;
+            Postfix exp = new Postfix(resultText.getText());
+            String postfix;
+            postfix = exp.nifixToPostfix();
+            Compute ans = new Compute(postfix);
+            stoNumber = ans.compute();
+
         });
     }
     public void RCLListener(MyTextField resultText,StringBuilder postfix){

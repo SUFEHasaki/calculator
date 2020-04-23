@@ -173,10 +173,10 @@ public class Postfix {
             }
             //识别sec
             if (c[i]=='s'&&c[i+1]=='e'&&c[i+2]=='c'){
-                while (!opt.isEmpty()&&(prio(opt.peek())>prio('e'))){
+                while (!opt.isEmpty()&&(prio(opt.peek())>prio('k'))){
                     postfix.append(opt.pop());
                 }
-                opt.push('e');
+                opt.push('k');
                 i+=2;
                 continue;
             }

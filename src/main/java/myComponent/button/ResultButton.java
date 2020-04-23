@@ -1,8 +1,12 @@
 package myComponent.button;
 
+import javax.swing.*;
+import javax.xml.transform.Result;
+import java.awt.*;
+
 import myComponent.MyTextField;
-import utils.Compute;
-import utils.Postfix;
+import java.text.DecimalFormat;
+import utils.*;
 
 public class ResultButton extends MyButton {
     public ResultButton(String name,StringBuilder exp, MyTextField resultText){
@@ -15,6 +19,7 @@ public class ResultButton extends MyButton {
             Postfix postfix = new Postfix(exp.toString());
             Compute compute = new Compute(postfix.nifixToPostfix());
             double ans = compute.compute();
+            final DecimalFormat df1 = new DecimalFormat( "#.####" );
 
             switch (name){
                 case "=" :

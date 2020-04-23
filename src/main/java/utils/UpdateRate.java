@@ -64,7 +64,6 @@ public class UpdateRate {
             writer.close();
             readFile();
         } catch (Exception ignored){
-
         }
 
     }
