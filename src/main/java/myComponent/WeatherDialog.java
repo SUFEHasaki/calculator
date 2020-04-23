@@ -12,16 +12,19 @@ public class WeatherDialog extends JDialog {
 public static void main(String[] args) {
     new WeatherDialog();
 }
-//    public WeatherDialog(){
-//        super();
-//        init(Weather.getWeather());
-//    }
+    public WeatherDialog(){
+        super();
+        init(Weather.getWeather());
+    }
     public void init(JSONObject weather){
         JLabel district =new JLabel();
         JTextArea advice=new JTextArea();
-    //    district.setText(weather.getString("date")+" "+weather.getString("location")+" "+weather.getString("city"));
+        district.setText(weather.getString("date")+" "+weather.getString("location")+" "+weather.getString("city"));
         advice.setLineWrap(true);
         advice.append("舒适度指数:\n");
+//        try{
+//
+//        }
         advice.append(weather.getString("comf")+"\n\n");
         advice.append("运动指数:\n");
         advice.append(weather.getString("sport")+"\n\n");

@@ -1,6 +1,7 @@
 package myComponent;
 
 import javax.swing.JTextField;
+import java.awt.*;
 
 public class MyTextField extends JTextField {
     public MyTextField(String name,int RorL){
@@ -10,6 +11,7 @@ public class MyTextField extends JTextField {
         this.setHorizontalAlignment(RorL);
         // 不允许修改结果文本框
         this.setEditable(false);
+        this.setFont(new Font("宋体",Font.BOLD,20));
         // 设置文本框背景颜色为透明
         this.setOpaque(true);
     }

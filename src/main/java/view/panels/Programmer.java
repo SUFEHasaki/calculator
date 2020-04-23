@@ -23,11 +23,6 @@ public class Programmer{
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
     private  final String[] OPERATORKEYS = { "&","|","!","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
-
-    private RECButton recButton;
-    private RCLButton rclButton;
-    private EXMButton exmButton;
-    private STOButton stoButton;
     private HexBinDecOct hexBinDecOct = new HexBinDecOct();
     public Programmer(){
 
@@ -66,20 +61,10 @@ public class Programmer{
         for (int i = 0; i < RADIXKEYS.length; i++) {
             radixButtons[i] = new RadixButton(RADIXKEYS[i],postfix,resultText);
         }
-        recButton=new RECButton();
-        rclButton=new RCLButton();
-        exmButton=new EXMButton(numberButtons);
-        stoButton =new STOButton();
         clearButton=new ClearButton();
         deleteButton=new DeleteButton();
         clearButton.generalListener(postfix,resultText);
         deleteButton.generalListener(postfix,resultText);
-        JPanel memPanel = new JPanel();
-        memPanel.setLayout(new GridLayout(1, 4, 3, 3));
-        memPanel.add(recButton);
-        memPanel.add(exmButton);
-        memPanel.add(rclButton);
-        memPanel.add(stoButton);
 
         JPanel padPanel = new JPanel();
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
@@ -101,7 +86,6 @@ public class Programmer{
 
         JPanel buttonPanel=new JPanel();
         buttonPanel.setLayout(new BorderLayout(3, 5));
-        buttonPanel.add("North",memPanel);
         buttonPanel.add("Center", padPanel);
         buttonPanel.add("West",leftPanel);
 

@@ -17,7 +17,7 @@ public class BasePanel extends JFrame{
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
-    private WeatherDialog weatherDialog=new WeatherDialog();
+//    private WeatherDialog weatherDialog=new WeatherDialog();
     private Navigator navigator=new Navigator();
     public BasePanel(){
         super();
