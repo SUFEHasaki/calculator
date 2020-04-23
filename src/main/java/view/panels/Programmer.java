@@ -13,8 +13,8 @@ public class Programmer{
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
 
-    private ClearButton clearButton=new ClearButton();
-    private DeleteButton deleteButton=new DeleteButton();
+    private ClearButton clearButton;
+    private DeleteButton deleteButton;
     private final String[] RESULTKEYS={"<<",">>","="};
     private ResultButton[] resultButtons=new ResultButton[3];
     private final  String[] NUMBERKEYS = { "7", "8", "9", "4", "5", "6","1","2","3","0", "A", "B","C","D","E","F","-"};
@@ -70,6 +70,8 @@ public class Programmer{
         rclButton=new RCLButton();
         exmButton=new EXMButton(numberButtons);
         stoButton =new STOButton();
+        clearButton=new ClearButton();
+        deleteButton=new DeleteButton();
         clearButton.generalListener(postfix,resultText);
         deleteButton.generalListener(postfix,resultText);
         JPanel memPanel = new JPanel();
