@@ -10,6 +10,6 @@ public class RadixButton extends JButton {
         this.setText(name);
         this.setForeground(Color.RED);
         this.setBackground(Color.WHITE);
-
     }
+
 }

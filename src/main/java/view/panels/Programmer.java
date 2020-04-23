@@ -3,9 +3,11 @@ package view.panels;
 
 import myComponent.button.*;
 import myComponent.MyTextField;
+import utils.HexBinDecOct;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 public class Programmer{
     private StringBuilder postfix = new StringBuilder();
@@ -26,6 +28,7 @@ public class Programmer{
     private RCLButton rclButton;
     private EXMButton exmButton;
     private STOButton stoButton;
+    private HexBinDecOct hexBinDecOct = new HexBinDecOct();
     public Programmer(){
 
     }
@@ -98,6 +101,10 @@ public class Programmer{
             leftPanel.add(radixButtons[1],0);
             leftPanel.remove(radixButtons[0]);
             leftPanel.revalidate();
+            postfix.delete(0,postfix.length());
+            postfix.append(resultText.getText());
+            postfix = hexBinDecOct.Convertion(10,16,postfix);
+            resultText.setText(postfix.toString());
         });
         radixButtons[1].addActionListener(e->{
             numberButtons[1].setEnabled(false);
@@ -105,6 +112,10 @@ public class Programmer{
             leftPanel.add(radixButtons[2],0);
             leftPanel.remove(radixButtons[1]);
             leftPanel.revalidate();
+            postfix.delete(0,postfix.length());
+            postfix.append(resultText.getText());
+            postfix = hexBinDecOct.Convertion(8,10,postfix);
+            resultText.setText(postfix.toString());
         });
         radixButtons[2].addActionListener(e->{
             numberButtons[0].setEnabled(false);
@@ -116,6 +127,10 @@ public class Programmer{
             leftPanel.add(radixButtons[3],0);
             leftPanel.remove(radixButtons[2]);
             leftPanel.revalidate();
+            postfix.delete(0,postfix.length());
+            postfix.append(resultText.getText());
+            postfix = hexBinDecOct.Convertion(2,8,postfix);
+            resultText.setText(postfix.toString());
         });
         radixButtons[3].addActionListener(e->{
             for (int i=0;i<16;i++){
@@ -124,6 +139,10 @@ public class Programmer{
             leftPanel.add(radixButtons[0],0);
             leftPanel.remove(radixButtons[3]);
             leftPanel.revalidate();
+            postfix.delete(0,postfix.length());
+            postfix.append(resultText.getText());
+            postfix = hexBinDecOct.Convertion(16,2,postfix);
+            resultText.setText(postfix.toString());
         });
 
         return programmer;
