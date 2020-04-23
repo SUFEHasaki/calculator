@@ -3,14 +3,17 @@ package myComponent.button;
 import javax.swing.*;
 import javax.xml.transform.Result;
 import java.awt.*;
-
+import lombok.Data;
 import myComponent.MyTextField;
 import java.text.DecimalFormat;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
 import utils.*;
 
+@Data
 public class ResultButton extends MyButton {
+
+    private int system=16;
     public ResultButton(String name){
         super();
         this.setText(name);
@@ -95,11 +98,10 @@ public class ResultButton extends MyButton {
         });
     }
 
-    public void programmerListener(String name,StringBuilder exp, MyTextField resultText,int current){
+    public void programmerListener(String name,StringBuilder exp, MyTextField resultText){
         this.addActionListener(e -> {
             HexBinDecOct hexBinDecOct = new HexBinDecOct();
-            System.out.println(current);
-            StringBuilder s = hexBinDecOct.Convertion(10,current,exp);
+            StringBuilder s = hexBinDecOct.Convertion(10,system,exp);
             Postfix expe = new Postfix(s.toString());
             String postfix =  expe.nifixToPostfix();
             Compute compute = new Compute(postfix);
@@ -117,7 +119,7 @@ public class ResultButton extends MyButton {
 
             exp.delete(0,exp.length());
             exp.append(ans);
-            s = hexBinDecOct.Convertion(current,10,exp);
+            s = hexBinDecOct.Convertion(system,10,exp);
             exp.delete(0,exp.length());
             exp.append(s);
             resultText.setText(exp.toString());
