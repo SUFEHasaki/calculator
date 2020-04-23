@@ -24,7 +24,7 @@ public class NumberButton extends MyButton {
     public void STOListener(MyTextField resultText){
         this.removeActionListener(this.getActionListeners()[0]);
         this.addActionListener(e -> {
-            stoNumber=1;
+            //      stoNumber=1;
             //计算过程
 //            this.stoNumber=1.0;
             Postfix exp = new Postfix(resultText.getText());
@@ -35,6 +35,7 @@ public class NumberButton extends MyButton {
 
         });
     }
+
     public void RCLListener(MyTextField resultText,StringBuilder postfix){
         this.removeActionListener(this.getActionListeners()[0]);
         this.addActionListener(e -> {

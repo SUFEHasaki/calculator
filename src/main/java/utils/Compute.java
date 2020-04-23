@@ -37,7 +37,38 @@ public class Compute extends Postfix{
             if (c[i]=='π'){
                 num.push(Math.PI);
             }
-            //计算加法
+            //计算逻辑与
+            if (c[i]=='&'){
+                double num1 = num.pop();
+                double num2 = num.pop();
+                double num3 = (int)num1 & (int)num2;
+                num.push(num3);
+            }
+
+            //计算逻辑或
+            if (c[i]=='|'){
+                double num1 = num.pop();
+                double num2 = num.pop();
+                double num3 = (int)num1 | (int)num2;
+                num.push(num3);
+            }
+
+            //计算逻辑亦或
+            if (c[i]=='\\'){
+                double num1 = num.pop();
+                double num2 = num.pop();
+                double num3 = (int)num1 ^ (int)num2;
+                num.push(num3);
+            }
+
+            //计算逻辑非
+            if (c[i]=='~'){
+                double num1 = num.pop();
+                double num2 = ~(int)num1;
+                num.push(num2);
+            }
+
+            //计算阶乘
             if (c[i]=='?'){
                 double num1 = num.pop();
                 int temp = 1;
@@ -48,7 +79,7 @@ public class Compute extends Postfix{
                 }
                 num.push(num2);
             }
-
+            //计算加法
             if (c[i]=='+') {
                 double num1 = num.pop();
                 double num2;

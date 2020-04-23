@@ -21,7 +21,7 @@ public class Programmer{
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
-    private  final String[] OPERATORKEYS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
+    private  final String[] OPERATORKEYS = { "&","|","!","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
 
     private RECButton recButton;
@@ -167,6 +167,63 @@ public class Programmer{
             //RESULTKEYS[i],postfix,resultText
             //      初始化16个数字按钮
         }
+
+        stoButton.addActionListener(e -> {
+            for(ResultButton resultButton:resultButtons){
+                resultButton.setEnabled(false);
+            }
+            for(OperatorButton operatorButton:operatorButtons){
+                operatorButton.setEnabled(false);
+            }
+
+            clearButton.setEnabled(false);
+            deleteButton.setEnabled(false);
+            rclButton.setEnabled(false);
+            for(int i=9;i<13;i++){
+                numberButtons[i].setEnabled(false);
+            }
+            for(int i=0;i<9;i++){
+                numberButtons[i].STOListener(resultText);
+            }
+
+        });
+        recButton.addActionListener(e -> {
+            for(ResultButton resultButton:resultButtons){
+                resultButton.setEnabled(true);
+            }
+            for(OperatorButton operatorButton:operatorButtons){
+                operatorButton.setEnabled(true);
+            }
+
+            clearButton.setEnabled(true);
+            deleteButton.setEnabled(true);
+            rclButton.setEnabled(true);
+            stoButton.setEnabled(true);
+            for(int i=9;i<13;i++){
+                numberButtons[i].setEnabled(true);
+            }
+            for(int i=0;i<9;i++){
+                numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);
+            }
+        });
+        rclButton.addActionListener(e -> {
+            for(ResultButton resultButton:resultButtons){
+                resultButton.setEnabled(false);
+            }
+            for(OperatorButton operatorButton:operatorButtons){
+                operatorButton.setEnabled(false);
+            }
+
+            clearButton.setEnabled(false);
+            deleteButton.setEnabled(false);
+            stoButton.setEnabled(false);
+            for(int i=9;i<13;i++){
+                numberButtons[i].setEnabled(false);
+            }
+            for(int i=0;i<9;i++){
+                numberButtons[i].RCLListener(resultText,postfix);
+            }
+        });
         return programmer;
     }
 }

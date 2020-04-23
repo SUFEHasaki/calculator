@@ -104,9 +104,10 @@ public class ResultButton extends MyButton {
             String postfix =  expe.nifixToPostfix();
             Compute compute = new Compute(postfix);
             double ans = compute.compute();
-            final DecimalFormat df1 = new DecimalFormat( "#.########" );
+       //     final DecimalFormat df1 = new DecimalFormat( "#.00000" );
             switch (name){
                 case "=":
+                    ans = (int)ans;
                     break;
                 case "<<":
                     ans = (int)ans << 1;
@@ -119,7 +120,7 @@ public class ResultButton extends MyButton {
             s = hexBinDecOct.Convertion(current,10,exp);
             exp.delete(0,exp.length());
             exp.append(s);
-            resultText.setText(s.toString());
+            resultText.setText(exp.toString());
         });
     }
 }
