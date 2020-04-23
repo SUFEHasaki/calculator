@@ -101,7 +101,8 @@ public class ResultButton extends MyButton {
     public void programmerListener(String name,StringBuilder exp, MyTextField resultText){
         this.addActionListener(e -> {
             HexBinDecOct hexBinDecOct = new HexBinDecOct();
-            StringBuilder s = hexBinDecOct.Convertion(10,system,exp);
+            StringBuilder s = new StringBuilder();
+            s.append(hexBinDecOct.Convertion(10,system,exp));
             Postfix expe = new Postfix(s.toString());
             String postfix =  expe.nifixToPostfix();
             Compute compute = new Compute(postfix);
@@ -113,13 +114,16 @@ public class ResultButton extends MyButton {
                     break;
                 case "<<":
                     ans = (int)ans << 1;
+                    break;
                 case ">>":
                     ans = (int)ans >> 1;
+                    break;
             }
 
             exp.delete(0,exp.length());
             exp.append(ans);
-            s = hexBinDecOct.Convertion(system,10,exp);
+            s.delete(0,s.length());
+            s.append(hexBinDecOct.Convertion(system,10,exp));
             exp.delete(0,exp.length());
             exp.append(s);
             resultText.setText(exp.toString());
