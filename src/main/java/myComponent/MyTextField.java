@@ -14,6 +14,7 @@ public class MyTextField extends JTextField {
         this.setFont(new Font("宋体",Font.BOLD,20));
         // 设置文本框背景颜色为透明
         this.setOpaque(true);
+
     }
 
 }

@@ -9,8 +9,5 @@ public class RECButton extends MyButton {
     public RECButton(){
         super();
         this.setText("REC");
-        this.addActionListener(e -> {
-
-        });
     }
 }

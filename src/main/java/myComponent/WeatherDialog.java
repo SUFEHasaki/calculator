@@ -14,9 +14,15 @@ public static void main(String[] args) {
 }
     public WeatherDialog(){
         super();
+        this.setTitle("生活指数");
+        this.setVisible(true);
+        this.setLocation(800, 400);
+        this.setSize(300,300);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         init(Weather.getWeather());
     }
     public void init(JSONObject weather){
+        System.out.println(weather);
         JLabel district =new JLabel();
         JTextArea advice=new JTextArea();
         district.setText(weather.getString("date")+" "+weather.getString("location")+" "+weather.getString("city"));
@@ -25,18 +31,20 @@ public static void main(String[] args) {
 //        try{
 //
 //        }
-        advice.append(weather.getString("comf")+"\n\n");
+        try{
+            advice.append(weather.getString("comf")+"\n\n");
+        }catch (Exception e){advice.append("暂无数据。\n\n");}
+
         advice.append("运动指数:\n");
-        advice.append(weather.getString("sport")+"\n\n");
+        try{
+            advice.append(weather.getString("sport")+"\n\n");
+        }catch (Exception e){advice.append("暂无数据。\n\n");}
         advice.append("防晒指数:\n");
-        advice.append(weather.getString("uv"));
+        try{
+            advice.append(weather.getString("uv"));
+        }catch (Exception e){advice.append("暂无数据。\n\n");}
         getContentPane().setLayout(new BorderLayout(3, 5));
         getContentPane().add("North",district);
         getContentPane().add("Center",advice);
-        this.setTitle("生活指数");
-        this.setVisible(true);
-        this.setLocation(800, 400);
-        this.setSize(300,300);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 }

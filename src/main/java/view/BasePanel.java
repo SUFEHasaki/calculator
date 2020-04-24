@@ -1,6 +1,7 @@
 package view;
 
 import myComponent.WeatherDialog;
+import myComponent.button.WeatherButton;
 import utils.UpdateRate;
 import utils.Weather;
 import view.panels.*;
@@ -19,6 +20,7 @@ public class BasePanel extends JFrame{
     private Transformer transformer=new Transformer();
 //    private WeatherDialog weatherDialog=new WeatherDialog();
     private Navigator navigator=new Navigator();
+    private Widget widget=new Widget();
     public BasePanel(){
         super();
         // 初始化计算器
@@ -38,6 +40,7 @@ public class BasePanel extends JFrame{
         Container container=getContentPane();
         container.setLayout(new BorderLayout(3, 5));
         container.add("North", navigator.init());
+        container.add("Center",widget.init());
         container.add("South", science.init());
         navigator.getMenu().addActionListener(e -> {
             switch (navigator.getMenu().getSelectedIndex()){
