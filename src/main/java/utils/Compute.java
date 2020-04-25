@@ -68,6 +68,15 @@ public class Compute extends Postfix{
                 num.push(num2);
             }
 
+            //计算exp
+            if (c[i]=='x'){
+                double num1 = num.pop();
+                double num2 = num.pop();
+                double num3 = num2*Math.pow(10,num1);
+                System.out.println(num2);
+                num.push(num3);
+            }
+
             //计算阶乘
             if (c[i]=='?'){
                 double num1 = num.pop();

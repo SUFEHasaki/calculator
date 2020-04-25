@@ -13,6 +13,8 @@ import java.awt.*;
 public class BasePanel extends JFrame{
     public static void main(String[] args) {
         new BasePanel();
+        System.out.println(~9);
+        System.out.println(Integer.valueOf("-5",16));
     }
     /** 计算结果文本框 */
     private Science science=new Science();

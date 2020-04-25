@@ -189,7 +189,7 @@ public class Programmer{
 
         for (int i = 0; i <RESULTKEYS.length; i++) {
             resultButtons[i].programmerListener(RESULTKEYS[i],postfix,resultText);
-            System.out.println(systemRecognization());
+//            System.out.println(systemRecognization());
             //RESULTKEYS[i],postfix,resultText
             //      初始化16个数字按钮
         }

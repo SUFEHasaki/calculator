@@ -23,6 +23,7 @@ public class Postfix {
     private int prio(char a){
         int priority_a=0;
         switch (a){
+
             case '+': priority_a = 0;break;
             case '-': priority_a = 0;break;
             case '*': priority_a = 1;break;
@@ -43,10 +44,10 @@ public class Postfix {
             case 'e': priority_a = 3;break;    //sec
             case 'n': priority_a = 3;break;    //csc
             case 'p': priority_a = 3;break;    //cot
+            case 'x': priority_a = 3;break;    //sin
             case 'l': priority_a = 3;break;    //ln
             case 'g': priority_a = 3;break;    //log
             case 'm': priority_a = 3;break;    //log_y(x)
-
 
         }
         return  priority_a;
@@ -65,18 +66,6 @@ public class Postfix {
                 continue;
             }
 
-            //当前字符为自然对数按数字处理
-            if (c[i]=='e'||c[i]=='E'){
-                postfix.append('e');
-                postfix.append(" ");
-                continue;
-            }
-            //当前字符为圆周率按数字处理
-            if (c[i]=='π'||c[i]=='Π'){
-                postfix.append('π');
-                postfix.append(" ");
-                continue;
-            }
             //识别对数log_y(X)
             if (c[i]=='b'&&c[i+1]=='l'&&c[i+2]=='o'&&c[i+3]=='g'){
                 while (!opt.isEmpty()&&(prio(opt.peek())>prio('m'))){
@@ -95,6 +84,18 @@ public class Postfix {
                 i+=2;
                 continue;
             }
+   //         System.out.println(c[i]);
+            //识别exp
+            if (c[i]=='e'&&c[i+1]=='x'&&c[i+2]=='p'){
+                while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i+1]))){
+                    postfix.append(opt.pop());
+                }
+                opt.push(c[i+1]);
+   //             System.out.println(c[i+1]);
+                i+=2;
+                continue;
+            }
+
             //识别对数ln
             if (c[i]=='l'&&c[i+1]=='n'){
                 while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i]))){
@@ -266,6 +267,19 @@ public class Postfix {
                     postfix.append(opt.pop());
                 }
                 opt.push(c[i]);
+                continue;
+            }
+
+            //当前字符为自然对数按数字处理
+            if (c[i]=='e'||c[i]=='E'){
+                postfix.append('e');
+                postfix.append(" ");
+                continue;
+            }
+            //当前字符为圆周率按数字处理
+            if (c[i]=='π'||c[i]=='Π'){
+                postfix.append('π');
+                postfix.append(" ");
                 continue;
             }
         }

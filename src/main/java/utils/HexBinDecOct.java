@@ -41,8 +41,10 @@ public class HexBinDecOct {
             }
 //            System.out.println("temp:"+temp);
             if (!isNum(current,c[i])){
-                expConverted.append(systemConvertion(temp.toString(),current,next));
-                temp.delete(0,temp.length());
+                if (temp.length()!=0){
+                    expConverted.append(systemConvertion(temp.toString(),current,next));
+                    temp.delete(0,temp.length());
+                }
                 expConverted.append(c[i]);
             }
         }
