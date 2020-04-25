@@ -23,7 +23,8 @@ public class Programmer{
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
-    private  final String[] OPERATORKEYS = { "&","|","~","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
+    private  final String[] OPERATORKEYS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
+    private  final String[] OPERATORS = { "&","|","~","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
     private HexBinDecOct hexBinDecOct = new HexBinDecOct();
     public Programmer(){
@@ -57,7 +58,7 @@ public class Programmer{
         }
         //        初始化13个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {
-            operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORKEYS[i],postfix,resultText,null);
+            operatorButtons[i] = new OperatorButton(OPERATORKEYS[i],OPERATORS[i],postfix,resultText,null);
         }
         //       初始化4个运算符变换按钮
         for (int i = 0; i < RADIXKEYS.length; i++) {

@@ -8,8 +8,9 @@ public class MyButton extends JButton {
         super();
         this.setForeground(Color.black);
         this.setBackground(null);
-        this.setOpaque(true);
+        this.setOpaque(false);
         this.setFocusPainted(false);
         this.setContentAreaFilled(false);
+//        this.setBorderPainted(false);
     }
 }

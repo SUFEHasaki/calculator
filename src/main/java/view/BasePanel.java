@@ -1,7 +1,4 @@
 package view;
-
-import myComponent.WeatherDialog;
-import myComponent.button.WeatherButton;
 import utils.UpdateRate;
 import utils.Weather;
 import view.panels.*;

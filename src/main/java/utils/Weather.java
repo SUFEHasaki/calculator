@@ -22,12 +22,12 @@ public class Weather extends Thread{
             Matcher matcher = Pattern.compile(IP).matcher(content);
             if (matcher.find()){
                 content=webClient.getPage(String.format("http://restapi.amap.com/v4/ip?ip=%s&key=0113a13c88697dcea6a445584d535837", matcher.group(1))).getWebResponse().getContentAsString();
-                System.out.println(content);
+//                System.out.println(content);
                 matcher = Pattern.compile(DISTRICT).matcher(content);
                 if(matcher.find()){
                     WeatherDialog.dateAndLocation=matcher.group(4)+" "+matcher.group(2)+" "+matcher.group(1);
                     content=webClient.getPage(String.format("https://free-api.heweather.net/s6/weather/lifestyle?location=%s,%s&key=2289d83e1f26405392712a2d136ce95b", matcher.group(3), matcher.group(5))).getWebResponse().getContentAsString();
-                    System.out.println(content);
+//                    System.out.println(content);
                     matcher = Pattern.compile(WEATHER).matcher(content);
                     if (matcher.find()){
                         WeatherDialog.comf=matcher.group(1);
