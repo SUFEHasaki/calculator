@@ -8,6 +8,10 @@ public class TransButton extends JButton {
         super();
         this.setText(name);
         this.setForeground(Color.BLUE);
-        this.setBackground(Color.WHITE);
+        this.setBackground(null);
+        this.setOpaque(false);
+        this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
+//        this.setPreferredSize(new Dimension(70,25));
     }
 }

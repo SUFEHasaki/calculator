@@ -13,6 +13,9 @@ public class MusicButton extends JButton {
         mp3Player=new Mp3Player(pathname);
         this.setForeground(Color.black);
         this.setBackground(Color.WHITE);
+        this.setContentAreaFilled(false);
+        this.setFocusPainted(false);
+        this.setBorderPainted(false);
         this.setText("<html><body><p>"+text+"<br/>BGM</p></body></html>");
         playListener();
     }

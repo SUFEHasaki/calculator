@@ -2,6 +2,8 @@ package view.panels;
 
 import myComponent.button.*;
 import myComponent.MyTextField;
+import myComponent.panel.GeneralPanel;
+import myComponent.panel.HasakiPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,14 +69,14 @@ public class Science{
         deleteButton=new DeleteButton();
         clearButton.generalListener(postfix,resultText);
         deleteButton.generalListener(postfix,resultText);
-        JPanel memPanel = new JPanel();
+        JPanel memPanel = new GeneralPanel();
         memPanel.setLayout(new GridLayout(1, 4, 3, 3));
         memPanel.add(recButton);
         memPanel.add(exmButton);
         memPanel.add(rclButton);
         memPanel.add(stoButton);
 
-        JPanel padPanel = new JPanel();
+        JPanel padPanel = new GeneralPanel();
 //        padPanel.setBackground(Color.WHITE);
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
         padPanel.add(resultButtons[0]);padPanel.add(resultButtons[1]);padPanel.add(clearButton);padPanel.add(deleteButton);
@@ -85,25 +87,24 @@ public class Science{
         padPanel.add(numberButtons[6]);padPanel.add(numberButtons[7]);padPanel.add(numberButtons[8]);padPanel.add(operatorButtons[25]);
         padPanel.add(numberButtons[12]);padPanel.add(numberButtons[9]);padPanel.add(pointButton);padPanel.add(resultButtons[3]);
 
-        JPanel leftPanel = new JPanel();
+        JPanel leftPanel = new GeneralPanel();
         leftPanel.setLayout(new GridLayout(7, 1, 3, 3));
-
         leftPanel.add(transButtons[0]);
         for(int i=0;i<6;i++){
             leftPanel.add(operatorButtons[i]);
         }
 
-        JPanel buttonPanel=new JPanel();
+        JPanel buttonPanel=new HasakiPanel();
         buttonPanel.setLayout(new BorderLayout(3, 5));
         buttonPanel.add("North", memPanel);
         buttonPanel.add("Center", padPanel);
         buttonPanel.add("West", leftPanel);
-
-        JPanel science =new JPanel();
+//        buttonPanel.setBackground(Color.WHITE);
+        JPanel science =new GeneralPanel();
         science.setLayout(new BorderLayout(3, 5));
         science.add("South",buttonPanel);
         science.add("Center",resultText);
-
+//        science.setBackground(Color.RED);
 //        其他监听器
 
         transButtons[0].addActionListener(e->{

@@ -3,6 +3,8 @@ package view.panels;
 
 import myComponent.button.*;
 import myComponent.MyTextField;
+import myComponent.panel.GeneralPanel;
+import myComponent.panel.HasakiPanel;
 import utils.HexBinDecOct;
 
 import javax.swing.*;
@@ -66,7 +68,7 @@ public class Programmer{
         clearButton.generalListener(postfix,resultText);
         deleteButton.generalListener(postfix,resultText);
 
-        JPanel padPanel = new JPanel();
+        JPanel padPanel = new GeneralPanel();
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
         padPanel.add(resultButtons[0]);padPanel.add(resultButtons[1]);padPanel.add(clearButton);padPanel.add(deleteButton);
         padPanel.add(operatorButtons[0]);padPanel.add(operatorButtons[1]);padPanel.add(operatorButtons[2]);padPanel.add(operatorButtons[3]);
@@ -77,19 +79,19 @@ public class Programmer{
         padPanel.add(numberButtons[16]);padPanel.add(numberButtons[9]);padPanel.add(operatorButtons[11]);padPanel.add(resultButtons[2]);
         operatorButtons[11].setEnabled(false);
 
-        JPanel leftPanel = new JPanel();
+        JPanel leftPanel = new GeneralPanel();
         leftPanel.setLayout(new GridLayout(7, 1, 3, 3));
         leftPanel.add(radixButtons[0]);
         for(int i=10;i<16;i++){
             leftPanel.add(numberButtons[i]);
         }
 
-        JPanel buttonPanel=new JPanel();
+        JPanel buttonPanel=new HasakiPanel();
         buttonPanel.setLayout(new BorderLayout(3, 5));
         buttonPanel.add("Center", padPanel);
         buttonPanel.add("West",leftPanel);
 
-        JPanel programmer=new JPanel();
+        JPanel programmer=new GeneralPanel();
         programmer.setLayout(new BorderLayout(3, 5));
         programmer.add("North",resultText);
         programmer.add("South",buttonPanel);

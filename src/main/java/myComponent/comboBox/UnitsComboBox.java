@@ -3,6 +3,7 @@ package myComponent.comboBox;
 import lombok.Data;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
+import myComponent.decoration.MyComboBoxUI;
 import utils.Constant;
 
 import javax.swing.*;
@@ -11,7 +12,9 @@ import java.awt.event.ItemEvent;
 //@Data
 public class UnitsComboBox extends JComboBox<String> {
     public UnitsComboBox(){
-       super();
+        super();
+        this.setOpaque(true);
+        this.setUI(new MyComboBoxUI("arrow1.png"));
     }
     public void formerTextListener(MyTextField rawText,MyTextField resultText,TransLabel label){
         this.addItemListener(e -> {

@@ -7,6 +7,9 @@ public class MyButton extends JButton {
     public MyButton(){
         super();
         this.setForeground(Color.black);
-        this.setBackground(Color.WHITE);
+        this.setBackground(null);
+        this.setOpaque(true);
+        this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
     }
 }

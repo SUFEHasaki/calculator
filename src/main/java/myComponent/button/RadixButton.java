@@ -9,7 +9,11 @@ public class RadixButton extends JButton {
     public RadixButton(String name,StringBuilder postfix, MyTextField resultText){
         this.setText(name);
         this.setForeground(Color.RED);
-        this.setBackground(Color.WHITE);
+        this.setBackground(null);
+        this.setOpaque(false);
+        this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
+//        this.setPreferredSize(new Dimension(50,25));
     }
 
 }

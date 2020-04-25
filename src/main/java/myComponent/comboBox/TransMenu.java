@@ -1,6 +1,7 @@
 package myComponent.comboBox;
 
 import myComponent.TransLabel;
+import myComponent.decoration.MyComboBoxUI;
 
 import javax.swing.JComboBox;
 
@@ -12,6 +13,8 @@ public class TransMenu extends JComboBox<String> {
         this.addItem("质量");
         this.addItem("面积");
         this.addItem("速率");
+        this.setOpaque(true);
+        this.setUI(new MyComboBoxUI("arrow2.png"));
         this.addActionListener(e -> {
                switch (this.getSelectedIndex()){
                    case 0:{

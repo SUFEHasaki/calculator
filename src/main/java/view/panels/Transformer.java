@@ -2,6 +2,8 @@ package view.panels;
 import myComponent.*;
 import myComponent.button.*;
 import myComponent.comboBox.*;
+import myComponent.panel.GeneralPanel;
+import myComponent.panel.HasakiPanel;
 import utils.Constant;
 
 import javax.swing.*;
@@ -36,7 +38,7 @@ public class Transformer {
         numberButtons[11].setEnabled(false);
         clearButton.transformerListener(postfix,rawText,resultText);
         deleteButton.transformerListener(postfix,rawText,resultText,label);
-        JPanel showPanel=new JPanel();
+        JPanel showPanel=new GeneralPanel();
         showPanel.setLayout(new GridLayout(5, 1, 3, 3));
         showPanel.add(menu);
         showPanel.add(rawText);
@@ -45,7 +47,7 @@ public class Transformer {
         showPanel.add(unitsComboBoxes[1]);
 //        showPanel.add(label);
 
-        JPanel padPanel = new JPanel();
+        JPanel padPanel = new HasakiPanel();
         // 用网格布局器，4行，4列的网格，网格之间的水平方向间隔为3个象素，垂直方向间隔为3个象素
         padPanel.setLayout(new GridLayout(5, 3, 3, 3));
         padPanel.add(numberButtons[10]);padPanel.add(clearButton);padPanel.add(deleteButton);
@@ -54,7 +56,7 @@ public class Transformer {
         padPanel.add(numberButtons[6]);padPanel.add(numberButtons[7]);padPanel.add(numberButtons[8]);
         padPanel.add(numberButtons[11]);padPanel.add(numberButtons[9]);padPanel.add(pointButton);
 
-        JPanel transformer=new JPanel();
+        JPanel transformer=new GeneralPanel();
         transformer.setLayout(new BorderLayout(3, 5));
         transformer.add("North",showPanel);
         transformer.add("Center",label);
