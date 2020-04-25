@@ -3,11 +3,9 @@ package utils;
 import com.alibaba.fastjson.JSONObject;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import myComponent.WeatherDialog;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.regex.*;
 
 public class Weather extends Thread{
@@ -42,8 +40,13 @@ public class Weather extends Thread{
                         WeatherDialog.uv="对不起，该地区暂无数据。";
                     }
                 }
+                else{
+                    WeatherDialog.dateAndLocation="无法获取数据:(";
+                }
             }
+
         }catch (IOException ignored){
+            WeatherDialog.dateAndLocation="无法获取数据:(";
         }
     }
 }
