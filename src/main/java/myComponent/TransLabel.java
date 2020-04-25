@@ -21,10 +21,12 @@ public class TransLabel extends JLabel {
     private int row=0;
     private int col=0;
     private double rate;
+    private UpdateRate updateRate;
     public TransLabel(){
         super();
         this.setForeground(Color.BLUE);
         this.setPreferredSize(new Dimension(340,30));
+        updateRate=new UpdateRate();
     }
     public void updateText(){
         switch(no){
@@ -41,12 +43,9 @@ public class TransLabel extends JLabel {
                     this.addMouseListener(new MouseListener() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            TransLabel.super.setEnabled(false);
                             TransLabel.super.removeMouseListener(TransLabel.super.getMouseListeners()[0]);
-                            UpdateRate.updateRate();
-                            System.out.println(1);
+                            updateRate.start();
                             updateText();
-                            TransLabel.super.setEnabled(true);
                         }
                         @Override
                         public void mousePressed(MouseEvent e) { }

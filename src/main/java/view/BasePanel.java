@@ -12,19 +12,20 @@ import java.awt.*;
 
 public class BasePanel extends JFrame{
     public static void main(String[] args) {
-        new BasePanel().setVisible(true);
+        new BasePanel();
     }
     /** 计算结果文本框 */
     private Science science=new Science();
     private Programmer programmer=new Programmer();
     private Transformer transformer=new Transformer();
-//    private WeatherDialog weatherDialog=new WeatherDialog();
+
     private Navigator navigator=new Navigator();
     private Widget widget=new Widget();
     public BasePanel(){
         super();
         // 初始化计算器
         init();
+        new Weather().start();
         // 设置计算器的背景颜色
         this.setTitle("Q宝");
         // 在屏幕(500, 300)坐标处显示计算器
@@ -32,8 +33,10 @@ public class BasePanel extends JFrame{
         this.setSize(350,450);
         // 不许修改计算器的大小
         this.setResizable(false);
+        this.setIconImage(new ImageIcon("src/file/Q.png").getImage());
         //关闭退出
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
         UpdateRate.readFile();
     }
     private void init(){
@@ -45,19 +48,19 @@ public class BasePanel extends JFrame{
         navigator.getMenu().addActionListener(e -> {
             switch (navigator.getMenu().getSelectedIndex()){
                 case 0:{
-                    container.remove(1);
+                    container.remove(2);
                     container.add("South", science.init());
                     container.revalidate();
                     break;
                 }
                 case 1:{
-                    container.remove(1);
+                    container.remove(2);
                     container.add("South", programmer.init());
                     container.revalidate();
                     break;
                 }
                 case 2:{
-                    container.remove(1);
+                    container.remove(2);
                     container.add("South", transformer.init());
                     container.revalidate();
                     break;
