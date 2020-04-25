@@ -12,28 +12,91 @@ public class DeleteButton extends MyButton {
         super();
         this.setText("◁");
     }
+    private boolean twoSymbol(StringBuilder postfix){
+        boolean flag = false;
+        int len = postfix.length();
+        if (len >= 2){
+            String str = postfix.substring(len-2,len);
+            if (str.equals("ln")){
+                flag = true;
+            }
+        }
+
+        return flag;
+    }
+    private boolean threeSymbol(StringBuilder postfix){
+        boolean flag = false;
+        int len = postfix.length();
+        if (len >= 3){
+            String str = postfix.substring(len-3,len);
+            if (str.equals("sin")||str.equals("cos")||str.equals("tan")||
+                    str.equals("sec")||str.equals("csc")||str.equals("cot")
+                    ||str.equals("log")||str.equals("exp")){
+                flag = true;
+            }
+        }
+
+        return flag;
+    }
+    private boolean fourSymbol(StringBuilder postfix){
+        boolean flag = false;
+        int len = postfix.length();
+        if (len >= 4){
+            String str = postfix.substring(len-4,len);
+            if (str.equals("sqrt")||str.equals("cbrt")||str.equals("blog")){
+                flag = true;
+            }
+        }
+
+        return flag;
+    }
+
+    private boolean fiveSymbol(StringBuilder postfix){
+        boolean flag = false;
+        int len = postfix.length();
+        if (len >= 5){
+            String str = postfix.substring(len-5,len);
+            if (str.equals("yroot")){
+                flag = true;
+            }
+        }
+
+        return flag;
+    }
     public void generalListener(StringBuilder postfix, MyTextField resultText){
         this.addActionListener(e -> {
             int len = postfix.length();
-            if (len>=3) {
-//                postfix.substring(postfix.length()-3);
-                if (postfix.charAt(len - 3) == 's' && postfix.charAt(len - 2) == 'i' && postfix.charAt(len - 1) == 'n' )
-                    postfix.delete(postfix.length() - 3, postfix.length());
-                else
-                    postfix.delete(len - 1, len);
-                resultText.setText(postfix.toString());
-            }
-            else if(len == 1){
-                postfix.delete(len - 1, len);
+            if (len == 0){
                 resultText.setText("0");
             }
-            else if (len == 0)
+            if (len == 1){
+                postfix.delete(len-1,len);
                 resultText.setText("0");
-            else {
-                postfix.delete(len - 1, len);
-                resultText.setText(postfix.toString());
             }
+            if (len >= 2){
+                System.out.println(len);
+                if (fiveSymbol(postfix)){
+                    postfix.delete(len-5,len);
+                    resultText.setText(postfix.toString());
+                }
+                else if (fourSymbol(postfix)){
+                    postfix.delete(len-4,len);
+                    resultText.setText(postfix.toString());
+                }
+                else if (threeSymbol(postfix)){
+                    postfix.delete(len-3,len);
+                    resultText.setText(postfix.toString());
+                }
+                else if (twoSymbol(postfix)){
+                    postfix.delete(len-2,len);
+                    resultText.setText(postfix.toString());
+                }
+                else {
+                    postfix.delete(len-1,len);
+                    resultText.setText(postfix.toString());
+                }
 
+            }
         });
     }
     public void transformerListener(StringBuilder postfix, MyTextField rawText,MyTextField resultText, TransLabel label){
