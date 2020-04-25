@@ -1,19 +1,9 @@
 package myComponent;
 
-import com.alibaba.fastjson.JSONObject;
-import lombok.Data;
-import lombok.Setter;
-import utils.Weather;
-
-
 import javax.swing.*;
 import java.awt.*;
 
 public class WeatherDialog extends JDialog {
-//    public static JSONObject weather;
-//public static void main(String[] args) {
-//    new WeatherDialog();
-//}
     public static String dateAndLocation="";
     public static String comf="";
     public static String sport="";
@@ -24,12 +14,14 @@ public class WeatherDialog extends JDialog {
         this.setVisible(true);
         this.setLocation(800, 400);
         this.setSize(300,300);
+        this.setIconImage(new ImageIcon("src/file/Q.png").getImage());
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         init();
     }
     private void init(){
         JLabel district =new JLabel();
         JTextArea advice=new JTextArea();
+        advice.setEditable(false);
         district.setText(dateAndLocation);
         advice.setLineWrap(true);
         advice.append("舒适度指数:\n");

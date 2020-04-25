@@ -13,7 +13,7 @@ public class EXMDialog extends JDialog {
             JLabel label=new JLabel(String.valueOf(numberButtons[i].getStoNumber()));
             getContentPane().add(label);
         }
-
+        this.setIconImage(new ImageIcon("src/file/Q.png").getImage());
         this.setTitle("存储情况");
         this.setVisible(true);
         this.setLocation(800, 400);
