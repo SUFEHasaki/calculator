@@ -32,14 +32,15 @@ public class Mp3Player implements Runnable {
             {
                 t=new Thread(this);
                 flag=true;
-                stream=new FileInputStream(file);
-                player=new Player(stream);
+
                 t.start();
             }
     }
     @SneakyThrows
     private void loop() {
         if (flag){
+            stream=new FileInputStream(file);
+            player=new Player(stream);
             player.play();
         }
         else
