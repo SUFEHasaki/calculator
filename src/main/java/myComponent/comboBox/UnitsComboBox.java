@@ -1,6 +1,5 @@
 package myComponent.comboBox;
 
-import lombok.Data;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
 import myComponent.decoration.MyComboBoxUI;
@@ -9,7 +8,6 @@ import utils.Constant;
 import javax.swing.*;
 import java.awt.event.ItemEvent;
 
-//@Data
 public class UnitsComboBox extends JComboBox<String> {
     public UnitsComboBox(){
         super();

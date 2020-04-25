@@ -4,9 +4,6 @@ import myComponent.MyTextField;
 import myComponent.TransLabel;
 import utils.Constant;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class DeleteButton extends MyButton {
     public DeleteButton(){
         super();

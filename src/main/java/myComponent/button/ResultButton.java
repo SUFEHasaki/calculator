@@ -1,16 +1,13 @@
 package myComponent.button;
 
-import javax.swing.*;
-import javax.xml.transform.Result;
-import java.awt.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import myComponent.MyTextField;
 import java.text.DecimalFormat;
-import myComponent.MyTextField;
-import myComponent.TransLabel;
 import utils.*;
 
-@Data
+@Getter
+@Setter
 public class ResultButton extends MyButton {
 
     private int system=16;

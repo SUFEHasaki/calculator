@@ -9,7 +9,6 @@ import utils.HexBinDecOct;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 
 public class Programmer{
     private StringBuilder postfix = new StringBuilder();
@@ -48,13 +47,9 @@ public class Programmer{
 //      初始化5个结果按钮
         for (int i = 0; i <RESULTKEYS.length; i++) {
             resultButtons[i] = new ResultButton(RESULTKEYS[i]);
- //           resultButtons[i].programmerListener(RESULTKEYS[i],postfix,resultText,systemRecognization());
-            //RESULTKEYS[i],postfix,resultText
-            //      初始化16个数字按钮
         }
         for (int i = 0; i <NUMBERKEYS.length; i++) {
             numberButtons[i] = new NumberButton(NUMBERKEYS[i]);
-     //       numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);
         }
         //        初始化13个运算符按钮
         for (int i = 0; i <OPERATORKEYS.length; i++) {

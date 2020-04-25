@@ -4,7 +4,6 @@ import myComponent.button.*;
 import myComponent.comboBox.*;
 import myComponent.panel.GeneralPanel;
 import myComponent.panel.HasakiPanel;
-import utils.Constant;
 
 import javax.swing.*;
 import java.awt.*;

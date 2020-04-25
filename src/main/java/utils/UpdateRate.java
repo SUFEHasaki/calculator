@@ -3,17 +3,12 @@ package utils;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import myComponent.TransLabel;
-import myComponent.button.TransButton;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UpdateRate implements Runnable{
-//    public static void main(String[] args) {
-//        updateRate();
-//    }
     private Thread t;
     public static void readFile() {
         String pathname = "src/file/rate.txt";

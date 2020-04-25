@@ -1,11 +1,13 @@
 package myComponent.button;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import myComponent.MyTextField;
 import myComponent.TransLabel;
 import utils.*;
 
-@Data
+@Getter
+@Setter
 public class NumberButton extends MyButton {
     private double stoNumber=0.0;
     public NumberButton(String name){

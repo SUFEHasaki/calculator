@@ -1,6 +1,7 @@
 package myComponent;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import utils.Constant;
 import utils.UpdateRate;
 
@@ -9,11 +10,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
-@Data
+@Getter
+@Setter
 public class TransLabel extends JLabel {
     private String formerText="";
     private String latterText="";

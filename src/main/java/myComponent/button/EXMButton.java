@@ -2,7 +2,6 @@ package myComponent.button;
 
 
 import myComponent.EXMDialog;
-import myComponent.MyTextField;
 
 public class EXMButton extends MyButton {
     public EXMButton(NumberButton []numberButtons){

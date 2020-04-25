@@ -1,6 +1,5 @@
 package utils;
 
-import com.alibaba.fastjson.JSONObject;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import myComponent.WeatherDialog;

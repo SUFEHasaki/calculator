@@ -77,7 +77,6 @@ public class Science{
         memPanel.add(stoButton);
 
         JPanel padPanel = new GeneralPanel();
-//        padPanel.setBackground(Color.WHITE);
         padPanel.setLayout(new GridLayout(7, 4, 3, 3));
         padPanel.add(resultButtons[0]);padPanel.add(resultButtons[1]);padPanel.add(clearButton);padPanel.add(deleteButton);
         padPanel.add(resultButtons[2]);padPanel.add(operatorButtons[18]);padPanel.add(numberButtons[10]);padPanel.add(numberButtons[11]);
@@ -99,12 +98,12 @@ public class Science{
         buttonPanel.add("North", memPanel);
         buttonPanel.add("Center", padPanel);
         buttonPanel.add("West", leftPanel);
-//        buttonPanel.setBackground(Color.WHITE);
+
         JPanel science =new GeneralPanel();
         science.setLayout(new BorderLayout(3, 5));
         science.add("South",buttonPanel);
         science.add("Center",resultText);
-//        science.setBackground(Color.RED);
+
 //        其他监听器
 
         transButtons[0].addActionListener(e->{
