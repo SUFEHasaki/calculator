@@ -166,7 +166,7 @@ public class Postfix {
                 continue;
             }
             //识别逻辑非
-            if (c[i]=='!'){
+            if (c[i]=='~'){
                 while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i]))){
                     postfix.append(opt.pop());
                 }

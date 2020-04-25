@@ -21,7 +21,7 @@ public class Programmer{
     private NumberButton[] numberButtons=new NumberButton[NUMBERKEYS.length];
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
-    private  final String[] OPERATORKEYS = { "&","|","!","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
+    private  final String[] OPERATORKEYS = { "&","|","~","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
     private HexBinDecOct hexBinDecOct = new HexBinDecOct();
     public Programmer(){
