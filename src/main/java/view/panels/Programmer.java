@@ -23,7 +23,7 @@ public class Programmer{
     private final  String[] RADIXKEYS = {"HEX", "DEC", "OCT", "BIN"};
     private  RadixButton[] radixButtons = new RadixButton[RADIXKEYS.length];
     private  final String[] OPERATORKEYS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
-    private  final String[] OPERATORS = { "&","|","~","\\", "(", ")", "%", "/", "*", "-",  "+", "." };
+    private  final String[] OPERATORS = { "&","|","!","^", "(", ")", "%", "/", "*", "-",  "+", "." };
     private  OperatorButton[] operatorButtons = new OperatorButton[OPERATORKEYS.length];
     private HexBinDecOct hexBinDecOct = new HexBinDecOct();
     public Programmer(){

@@ -76,7 +76,7 @@ public class ResultButton extends MyButton {
             Postfix expe = new Postfix(s.toString());
             String postfix =  expe.nifixToPostfix();
             Compute compute = new Compute(postfix);
-            double ans = compute.compute();
+            int ans = compute.computeP();
        //     final DecimalFormat df1 = new DecimalFormat( "#.00000" );
             switch (name){
                 case "=":
