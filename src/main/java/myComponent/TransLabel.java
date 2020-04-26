@@ -35,7 +35,7 @@ public class TransLabel extends JLabel {
                 try (FileReader reader = new FileReader("src/main/resources/rate.txt");
                      BufferedReader br = new BufferedReader(reader)
                 ) {
-                    this.setText("<html><body><p>"+formerText+"="+rate+latterText+"<br/>"+br.readLine()+"</p></body></html>");
+                    this.setText("<html><body><p>"+formerText+"="+rate+latterText+"<br/>"+br.readLine()+"  点击更新</p></body></html>");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

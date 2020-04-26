@@ -15,7 +15,7 @@ public class MusicButton extends JButton {
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);
         this.setBorderPainted(false);
-        this.setText("<html><body><p>"+text+"<br/>BGM</p></body></html>");
+        this.setText("<html><body><p>"+text.substring(0,2)+"<br/>"+text.substring(2)+"</p></body></html>");
         playListener();
     }
     private void playListener(){

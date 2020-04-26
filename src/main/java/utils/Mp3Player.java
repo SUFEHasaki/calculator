@@ -41,13 +41,17 @@ public class Mp3Player implements Runnable {
             player=new Player(stream);
             player.play();
         }
-        else
+        else{
+
             return;
+        }
+
         loop();
     }
     public void interrupt(){
         flag=false;
         player.close();
+        t.interrupt();
         t=null;
     }
 }
