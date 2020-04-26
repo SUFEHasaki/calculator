@@ -8,7 +8,7 @@ import java.awt.*;
 public class WeatherButton extends JButton {
 
     public WeatherButton(){
-        this.setIcon(new ImageIcon("src/file/cloud.png"));
+        this.setIcon(new ImageIcon("src/main/resources/cloud.png"));
         this.setContentAreaFilled(false);
         this.setFocusPainted(false);
         this.setBorderPainted(false);

@@ -32,7 +32,7 @@ public class BasePanel extends JFrame{
         this.setSize(350,450);
         // 不许修改计算器的大小
         this.setResizable(false);
-        this.setIconImage(new ImageIcon("src/file/Q.png").getImage());
+        this.setIconImage(new ImageIcon("src/main/resources/Q.png").getImage());
         //关闭退出
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);

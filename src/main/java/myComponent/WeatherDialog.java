@@ -14,7 +14,7 @@ public class WeatherDialog extends JDialog {
         this.setVisible(true);
         this.setLocation(800, 400);
         this.setSize(300,300);
-        this.setIconImage(new ImageIcon("src/file/Q.png").getImage());
+        this.setIconImage(new ImageIcon("src/main/resources/Q.png").getImage());
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         init();
     }

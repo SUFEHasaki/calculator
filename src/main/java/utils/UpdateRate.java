@@ -11,7 +11,7 @@ import java.util.Date;
 public class UpdateRate implements Runnable{
     private Thread t;
     public static void readFile() {
-        String pathname = "src/file/rate.txt";
+        String pathname = "src/main/resources/rate.txt";
 
         try (FileReader reader = new FileReader(pathname);
              BufferedReader br = new BufferedReader(reader)
@@ -41,7 +41,7 @@ public class UpdateRate implements Runnable{
 
     public void run() {
         try{
-            File file = new File("src/file/rate.txt");
+            File file = new File("src/main/resources/rate.txt");
             FileWriter writer = new FileWriter(file);
             String []FROM={"CNY","USD","GBP","EUR","KRW","JPY","TWD","MOP"};
             String []TO={"CNY","USD","GBP","EUR","KRW","JPY","TWD","MOP"};

@@ -11,7 +11,7 @@ public class HasakiPanel extends JPanel {
         this.setBackground(null);
         this.setOpaque(false);
         //  /img/HomeImg.jpg 是存放在你正在编写的项目的bin文件夹下的img文件夹下的一个图片
-        icon=new ImageIcon("src/file/hasa.png");
+        icon=new ImageIcon("src/main/resources/hasa.png");
         img=icon.getImage();
     }
     @Override

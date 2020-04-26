@@ -10,7 +10,7 @@ public class MyComboBoxUI extends BasicComboBoxUI {
     private ImageIcon DOWN_ICON;
     private static Color DEFAULT_COLOR = new Color(150, 207, 254);
     public MyComboBoxUI(String filename){
-       DOWN_ICON = new ImageIcon("src/file/"+filename);
+       DOWN_ICON = new ImageIcon("src/main/resources/"+filename);
 
     }
     @Override

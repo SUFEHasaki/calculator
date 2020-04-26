@@ -32,7 +32,7 @@ public class TransLabel extends JLabel {
         switch(no){
             case 0:{
                 rate=Constant.CURRENCY[row][col];
-                try (FileReader reader = new FileReader("src/file/rate.txt");
+                try (FileReader reader = new FileReader("src/main/resources/rate.txt");
                      BufferedReader br = new BufferedReader(reader)
                 ) {
                     this.setText("<html><body><p>"+formerText+"="+rate+latterText+"<br/>"+br.readLine()+"</p></body></html>");

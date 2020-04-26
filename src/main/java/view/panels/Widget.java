@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class Widget {
     private WeatherButton weatherButton=new WeatherButton();
-    private MusicButton work=new MusicButton("src/file/work.mp3","工作");
-    private MusicButton eat=new MusicButton("src/file/hahaha.mp3","下饭");
+    private MusicButton work=new MusicButton("src/main/resources/work.mp3","工作");
+    private MusicButton eat=new MusicButton("src/main/resources/hahaha.mp3","下饭");
 
     public JPanel init(){
          JPanel widget=new JPanel();
