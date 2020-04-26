@@ -10,7 +10,7 @@ public class WeatherDialog extends JDialog {
     public static String uv="";
     public WeatherDialog(){
         super();
-        this.setTitle("生活指数");
+        this.setTitle("天气指南");
         this.setVisible(true);
         this.setLocation(800, 400);
         this.setSize(300,300);
