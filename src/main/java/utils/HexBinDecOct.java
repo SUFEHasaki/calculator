@@ -5,7 +5,7 @@ import org.apache.commons.lang3.Conversion;
 public class HexBinDecOct {
     public HexBinDecOct(){
     }
-
+    //进制转换函数
     private String systemConvertion(String num,int current,int next){
 
         int integer = Integer.valueOf(num,current);
@@ -21,6 +21,7 @@ public class HexBinDecOct {
 
         return ans;
     }
+
 
     public StringBuilder Convertion(int next,int current,StringBuilder exp){
         StringBuilder expConverted=new StringBuilder();
