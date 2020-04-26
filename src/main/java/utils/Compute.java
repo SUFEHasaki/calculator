@@ -1,6 +1,7 @@
 package utils;
 
 import com.sun.jdi.event.ExceptionEvent;
+import myComponent.MyTextField;
 
 import java.util.Stack;
 
@@ -75,21 +76,21 @@ public class Compute extends Postfix{
                     double num1 = num.pop();
                     double num2 = num.pop();
                     double num3 = num2 * Math.pow(10, num1);
-                    System.out.println(num2);
                     num.push(num3);
                 }
 
                 //计算阶乘
-                if (c[i] == '?') {
-                    double num1 = num.pop();
-                    int temp = 1;
-                    double num2 = 1;
-                    while (temp <= num1) {
-                        num2 = num2 * temp;
-                        temp++;
-                    }
-                    num.push(num2);
-                }
+//                if (c[i] == '?') {
+//                    double num1 = num.pop();
+//                    int temp = 1;
+//                    double num2 = 1;
+//                    while (temp <= num1) {
+//                        num2 = num2 * temp;
+//                        temp++;
+//                    }
+//                    if (num2>0)
+//                        num.push(num2);
+//                }
                 //计算加法
                 if (c[i] == '+') {
                     double num1 = num.pop();
@@ -170,18 +171,21 @@ public class Compute extends Postfix{
                 //计算二次根式
                 if (c[i] == 'q') {
                     double num1 = num.pop();
-                    num.push(Math.sqrt(num1));
+                    if (num1>=0)
+                        num.push(Math.sqrt(num1));
                 }
                 //计算三次根式
                 if (c[i] == 'b') {
                     double num1 = num.pop();
-                    num.push(Math.cbrt(num1));
+                    if (num1>=0)
+                        num.push(Math.cbrt(num1));
                 }
                 //计算n次根式
                 if (c[i] == 'y') {
                     double num1 = num.pop();
                     double num2 = num.pop();
-                    num.push(Math.pow(num2, 1.0 / num1));
+                    if (num2>=0)
+                        num.push(Math.pow(num2, 1.0 / num1));
                 }
                 //计算绝对值
                 if (c[i] == 'a') {
@@ -191,13 +195,15 @@ public class Compute extends Postfix{
                 //计算log
                 if (c[i] == 'g') {
                     double num1 = num.pop();
-                    num.push(Math.log10(num1));
+                    if (num1>=0)
+                        num.push(Math.log10(num1));
                 }
                 //计算log_y(X)
                 if (c[i] == 'm') {
                     double num1 = num.pop();
                     double num2 = num.pop();
-                    num.push(Math.log(num2) / Math.log(num1));
+                    if (num2>=0)
+                        num.push(Math.log(num2) / Math.log(num1));
                 }
             }
             //扫面完后缀表达式，操作数栈只剩下一个元素，就是计算的结果
