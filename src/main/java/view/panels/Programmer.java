@@ -30,18 +30,18 @@ public class Programmer{
 
     }
 
-    public int systemRecognization(){
-        int ans = 0;
-        if (numberButtons[10].isEnabled())
-            ans = 16;
-        else if (numberButtons[2].isEnabled())
-            ans = 10;
-        else if (numberButtons[0].isEnabled())
-            ans = 8;
-        else
-            ans = 2;
-        return ans;
-    }
+//    public int systemRecognization(){
+//        int ans = 0;
+//        if (numberButtons[10].isEnabled())
+//            ans = 16;
+//        else if (numberButtons[2].isEnabled())
+//            ans = 10;
+//        else if (numberButtons[0].isEnabled())
+//            ans = 8;
+//        else
+//            ans = 2;
+//        return ans;
+//    }
 
     public JPanel init(){
 //      初始化5个结果按钮

@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import myComponent.MyTextField;
 import java.text.DecimalFormat;
+import java.util.EmptyStackException;
+
 import utils.*;
 
 @Getter
@@ -14,49 +16,10 @@ public class ResultButton extends MyButton {
     public ResultButton(String name){
         super();
         this.setText(name);
-//        this.setForeground(Color.black);
-//        this.setBackground(Color.WHITE);
-
-//        this.addActionListener(e -> {
-//     //       exp.append(operator);
-//            Postfix postfix = new Postfix(exp.toString());
-//            Compute compute = new Compute(postfix.nifixToPostfix());
-//            double ans = compute.compute();
-//            final DecimalFormat df1 = new DecimalFormat( "#.########" );
-//            switch (name){
-//
-//                case "=" :
-//                    resultText.setText(df1.format(ans));
-//                    if (exp.length()!=0)
-//                        exp.delete(0,exp.length());
-//                    break;
-//                case "1/x" :
-//                    ans = 1.0/ans; resultText.setText(df1.format(ans));
-//                    exp.delete(0,exp.length());
-//                    exp.append(df1.format(ans));
-//                    break;
-//                case "n!" :
-//                    int temp = 1, num = 1;
-//                    while (temp <= ans) {
-//                        num=num*temp;
-//                        temp++;
-//                    }
-//                    ans = num;
-//                    resultText.setText(df1.format(ans));
-//                    exp.delete(0,exp.length());
-//                    exp.append(df1.format(ans));
-//                    break;
-//                case "|x|" :
-//                    ans = Math.abs(ans);
-//                    resultText.setText(df1.format(ans));
-//                    exp.delete(0,exp.length());
-//                    exp.append(df1.format(ans));
-//                    break;
-//            }
-//        });
     }
     public void scienceListener(String name,StringBuilder exp, MyTextField resultText){
         this.addActionListener(e -> {
+            try {
             Postfix postfix = new Postfix(exp.toString());
             Compute compute = new Compute(postfix.nifixToPostfix());
             double ans = compute.compute();
@@ -67,6 +30,7 @@ public class ResultButton extends MyButton {
                     resultText.setText(df1.format(ans));
                     if (exp.length()!=0)
                         exp.delete(0,exp.length());
+                    exp.append(df1.format(ans));
                     break;
                 case "1/x" :
                     ans = 1.0/ans; resultText.setText(df1.format(ans));
@@ -91,12 +55,18 @@ public class ResultButton extends MyButton {
                     exp.append(df1.format(ans));
                     break;
             }
-
+            }
+            catch (EmptyStackException ex){
+                exp.delete(0,exp.length());
+                resultText.setText("error!");
+            }
         });
+
     }
 
     public void programmerListener(String name,StringBuilder exp, MyTextField resultText){
         this.addActionListener(e -> {
+            try {
             HexBinDecOct hexBinDecOct = new HexBinDecOct();
             StringBuilder s = new StringBuilder();
             s.append(hexBinDecOct.Convertion(10,system,exp));
@@ -124,6 +94,12 @@ public class ResultButton extends MyButton {
             exp.delete(0,exp.length());
             exp.append(s);
             resultText.setText(exp.toString());
+            }
+            catch (EmptyStackException ep){
+                exp.delete(0,exp.length());
+                resultText.setText("error!");
+            }
+
         });
     }
 }
