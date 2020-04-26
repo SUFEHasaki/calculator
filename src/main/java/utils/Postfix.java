@@ -31,7 +31,7 @@ public class Postfix {
             case '%': priority_a = 1;break;
             case '&': priority_a = 1;break;    //与运算
             case '|': priority_a = 1;break;    //或运算
-            case '~': priority_a = 1;break;    //非运算
+            case '!': priority_a = 1;break;    //非运算
             case '\\':priority_a = 1;break;    //异或运算
             case '^': priority_a = 2;break;    //乘方
             case 'q': priority_a = 2;break;    //开二次根式
@@ -167,21 +167,21 @@ public class Postfix {
                 continue;
             }
             //识别逻辑非
-            if (c[i]=='~'){
+            if (c[i]=='!'){
                 while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i]))){
                     postfix.append(opt.pop());
                 }
-                opt.push('~');
+                opt.push('!');
                 continue;
             }
-            //识别逻辑亦或
-            if (c[i]=='\\'){
-                while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i]))){
-                    postfix.append(opt.pop());
-                }
-                opt.push('\\');
-                continue;
-            }
+//            //识别逻辑亦或
+//            if (c[i]=='\\'){
+//                while (!opt.isEmpty()&&(prio(opt.peek())>prio(c[i]))){
+//                    postfix.append(opt.pop());
+//                }
+//                opt.push('\\');
+//                continue;
+//            }
 
             //识别正弦
             if (c[i]=='s'&&c[i+1]=='i'&&c[i+2]=='n'){
