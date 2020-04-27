@@ -6,6 +6,7 @@ import myComponent.MyTextField;
 import java.util.Stack;
 
 public class Compute extends Postfix{
+    //靳辰辰 start
     private Stack<Double> num = new Stack<>();
     private Stack<Integer> numP = new Stack<>();
     private StringBuilder sb = new StringBuilder();
@@ -382,5 +383,5 @@ public class Compute extends Postfix{
         //扫面完后缀表达式，操作数栈只剩下一个元素，就是计算的结果
         return numP.pop();
     }
-
+  //靳辰辰 end
 }
