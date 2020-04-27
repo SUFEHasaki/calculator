@@ -3,6 +3,7 @@ package myComponent.button;
 import myComponent.MyTextField;
 
 public class ClearButton extends MyButton {
+//    陈氢start
     public ClearButton(){
         super();
         this.setText("C");
@@ -22,4 +23,5 @@ public class ClearButton extends MyButton {
             resultText.setText("");
         });
     }
+//    陈氢end
 }

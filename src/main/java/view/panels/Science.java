@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Science{
+//    陈氢start
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
 
@@ -201,5 +202,5 @@ public class Science{
         });
         return science;
     }
-
+//    陈氢end
 }

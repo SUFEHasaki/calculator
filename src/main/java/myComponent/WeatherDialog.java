@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WeatherDialog extends JDialog {
+//    陈氢start
     public static String dateAndLocation="";
     public static String comf="";
     public static String sport="";
@@ -34,4 +35,5 @@ public class WeatherDialog extends JDialog {
         getContentPane().add("North",district);
         getContentPane().add("Center",advice);
     }
+//    陈氢end
 }

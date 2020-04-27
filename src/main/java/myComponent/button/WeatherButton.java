@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WeatherButton extends JButton {
-
+//    陈氢start
     public WeatherButton(){
         this.setIcon(new ImageIcon("src/main/resources/cloud.png"));
         this.setContentAreaFilled(false);
@@ -17,4 +17,5 @@ public class WeatherButton extends JButton {
             new WeatherDialog();
         });
     }
+//    陈氢end
 }

@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MusicButton extends JButton {
+//    陈氢start
     private Mp3Player mp3Player;
     public MusicButton(String pathname,String text){
         super();
@@ -33,4 +34,5 @@ public class MusicButton extends JButton {
         });
 
     }
+//    陈氢end
 }

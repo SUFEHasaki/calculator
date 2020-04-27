@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 @Getter
 @Setter
 public class Mp3Player implements Runnable {
+//    陈氢start
     private boolean flag=true;
     private Thread t;
     private Player player;
@@ -54,4 +55,5 @@ public class Mp3Player implements Runnable {
         t.interrupt();
         t=null;
     }
+//    陈氢end
 }

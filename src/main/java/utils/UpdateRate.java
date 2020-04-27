@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UpdateRate implements Runnable{
+//    陈氢start
     private Thread t;
     public static void readFile() {
         String pathname = "src/main/resources/rate.txt";
@@ -72,6 +73,6 @@ public class UpdateRate implements Runnable{
             t=new Thread(this);
             t.start();
         }
-
     }
+//    陈氢end
 }

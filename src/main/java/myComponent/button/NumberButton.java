@@ -9,6 +9,7 @@ import utils.*;
 @Getter
 @Setter
 public class NumberButton extends MyButton {
+//    陈氢start
     private double stoNumber=0.0;
     public NumberButton(String name){
         super();
@@ -26,9 +27,6 @@ public class NumberButton extends MyButton {
     public void STOListener(MyTextField resultText){
         this.removeActionListener(this.getActionListeners()[0]);
         this.addActionListener(e -> {
-            //      stoNumber=1;
-            //计算过程
-//            this.stoNumber=1.0;
             Postfix exp = new Postfix(resultText.getText());
             String postfix;
             postfix = exp.nifixToPostfix();
@@ -59,4 +57,5 @@ public class NumberButton extends MyButton {
             }
         });
     }
+//    陈氢end
 }

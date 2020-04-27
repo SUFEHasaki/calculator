@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TransButton extends JButton {
+//    陈氢start
     public TransButton(String name){
         super();
         this.setText(name);
@@ -14,4 +15,5 @@ public class TransButton extends JButton {
         this.setContentAreaFilled(false);
 //        this.setPreferredSize(new Dimension(70,25));
     }
+//    陈氢end
 }

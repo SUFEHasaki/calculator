@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Transformer {
+//    陈氢start
     private StringBuilder postfix = new StringBuilder();
     private MyTextField rawText = new MyTextField("0",2);
     private ClearButton clearButton=new ClearButton();
@@ -63,5 +64,5 @@ public class Transformer {
 
         return transformer;
     }
-
+//    陈氢end
 }

@@ -96,6 +96,7 @@ public class DeleteButton extends MyButton {
             }
         });
     }
+//    陈氢start
     public void transformerListener(StringBuilder postfix, MyTextField rawText,MyTextField resultText, TransLabel label){
         this.addActionListener(e -> {
             int len = postfix.length();
@@ -115,4 +116,5 @@ public class DeleteButton extends MyButton {
 
         });
     }
+//    陈氢end
 }

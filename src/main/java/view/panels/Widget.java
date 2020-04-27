@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Widget {
+//    陈氢start
     private WeatherButton weatherButton=new WeatherButton();
     private MusicButton work=new MusicButton("src/main/resources/work.mp3","气定神闲");
     private MusicButton eat=new MusicButton("src/main/resources/aihe.mp3","致命节奏");
@@ -19,4 +20,5 @@ public class Widget {
          widget.add("East",eat);
          return widget;
        }
+//       陈氢end
 }

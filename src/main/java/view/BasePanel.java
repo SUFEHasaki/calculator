@@ -8,10 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BasePanel extends JFrame{
+//    陈氢start
     public static void main(String[] args) {
         new BasePanel();
-        System.out.println(~9);
-        System.out.println(Integer.valueOf("-5",16));
     }
     /** 计算结果文本框 */
     private Science science=new Science();
@@ -67,5 +66,5 @@ public class BasePanel extends JFrame{
             }
         });
     }
-
+//    陈氢end
 }

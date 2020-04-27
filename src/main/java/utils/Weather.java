@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.regex.*;
 
 public class Weather extends Thread{
+//    陈氢start
     private static final String IP="\"ip\":\"(.*?)\"";
     private static final String DISTRICT="\"city\":\"(.*?)\".*\"county\":\"(.*?)\".*\"lng\":(.*?),.*\"time\":\"(\\d{4}-\\d{2}-\\d{2}).*\"lat\":(.*?)}";
     private static final String WEATHER="\"comf\".*?txt\":\"(.*?)\".*\"sport\".*?txt\":\"(.*?)\".*\"uv\".*?txt\":\"(.*?)\"";
@@ -48,6 +49,7 @@ public class Weather extends Thread{
             WeatherDialog.dateAndLocation="无法获取数据:(";
         }
     }
+//    陈氢end
 }
 //https://restapi.amap.com/v4/ip?ip=112.36.235.55&key=0113a13c88697dcea6a445584d535837
 //https://free-api.heweather.net/s6/weather/now?location=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90&key=2289d83e1f26405392712a2d136ce95b

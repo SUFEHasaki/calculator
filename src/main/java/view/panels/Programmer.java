@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Programmer{
+//    陈氢start
     private StringBuilder postfix = new StringBuilder();
     private MyTextField resultText = new MyTextField("0",4);
 
@@ -30,18 +31,6 @@ public class Programmer{
 
     }
 
-//    public int systemRecognization(){
-//        int ans = 0;
-//        if (numberButtons[10].isEnabled())
-//            ans = 16;
-//        else if (numberButtons[2].isEnabled())
-//            ans = 10;
-//        else if (numberButtons[0].isEnabled())
-//            ans = 8;
-//        else
-//            ans = 2;
-//        return ans;
-//    }
 
     public JPanel init(){
 //      初始化5个结果按钮
@@ -196,7 +185,7 @@ public class Programmer{
           //  numberButtons[i] = new NumberButton(NUMBERKEYS[i]);
             numberButtons[i].generalListener(NUMBERKEYS[i],postfix,resultText);
         }
-
         return programmer;
     }
+//    陈氢end
 }

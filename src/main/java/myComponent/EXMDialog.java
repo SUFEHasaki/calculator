@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class EXMDialog extends JDialog {
-
+//    陈氢start
     public void init(NumberButton[]numberButtons){
         getContentPane().setLayout(new GridLayout(3, 3, 3, 3));
         for (int i=0;i<9;i++){
@@ -20,4 +20,5 @@ public class EXMDialog extends JDialog {
         this.setSize(300,300);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
+//    陈氢end
 }

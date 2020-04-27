@@ -15,6 +15,7 @@ import java.io.FileReader;
 @Getter
 @Setter
 public class TransLabel extends JLabel {
+//    陈氢start
     private String formerText="";
     private String latterText="";
     private int no=0;
@@ -76,6 +77,6 @@ public class TransLabel extends JLabel {
             }
             this.setText(formerText+"="+rate+latterText);
         }
-
+//     陈氢end
     }
 

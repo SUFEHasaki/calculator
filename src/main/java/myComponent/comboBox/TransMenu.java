@@ -6,6 +6,7 @@ import myComponent.decoration.MyComboBoxUI;
 import javax.swing.JComboBox;
 
 public class TransMenu extends JComboBox<String> {
+//    陈氢start
     public TransMenu(UnitsComboBox[] unitsComboBoxes, TransLabel label){
         super();
         this.addItem("货币");
@@ -107,4 +108,5 @@ public class TransMenu extends JComboBox<String> {
         });
         this.setSelectedIndex(0);
     }
+//    陈氢end
 }

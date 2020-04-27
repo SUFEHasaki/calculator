@@ -7,6 +7,7 @@ import javax.swing.plaf.basic.ComboPopup;
 import java.awt.*;
 
 public class MyComboBoxUI extends BasicComboBoxUI {
+//    陈氢start
     private ImageIcon DOWN_ICON;
     private static Color DEFAULT_COLOR = new Color(150, 207, 254);
     public MyComboBoxUI(String filename){
@@ -62,8 +63,6 @@ public class MyComboBoxUI extends BasicComboBoxUI {
         }
         // 边框透明度
 
-        //g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-
         // 绘制边框，后两个参数控制圆角
 
         // 边框也有占位，所以宽高都需要减去2，否则会导致边框不全
@@ -78,7 +77,6 @@ public class MyComboBoxUI extends BasicComboBoxUI {
         // 获取到popup，为其设置边框，和combobox的颜色保持同步
         popup.setBorder(BorderFactory.createLineBorder(DEFAULT_COLOR));
         return popup;
-
     }
-
+//    陈氢end
 }

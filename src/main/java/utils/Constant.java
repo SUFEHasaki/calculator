@@ -1,6 +1,7 @@
 package utils;
 
 public class Constant {
+//    陈氢start
     public static double[][] CURRENCY= {
             /*CNY*/     {1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0},
             /*USD*/     {1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0},
@@ -46,4 +47,5 @@ public class Constant {
             /*英里/小时(迈)*/{4.4704e-1,1.609344e-1,1.0,8.689762e-1},
             /*节*/       {5.14444e-1,1.852,1.150779,1.0}
     };
+//    陈氢end
 }

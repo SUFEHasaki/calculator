@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MyButton extends JButton {
+//    陈氢start
     public MyButton(){
         super();
         this.setForeground(Color.black);
@@ -11,6 +12,6 @@ public class MyButton extends JButton {
         this.setOpaque(false);
         this.setFocusPainted(false);
         this.setContentAreaFilled(false);
-//        this.setBorderPainted(false);
     }
+//    陈氢end
 }

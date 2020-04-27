@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.ItemEvent;
 
 public class UnitsComboBox extends JComboBox<String> {
+//    陈氢start
     public UnitsComboBox(){
         super();
         this.setOpaque(true);
@@ -49,5 +50,5 @@ public class UnitsComboBox extends JComboBox<String> {
             }
         });
     }
-
+//    陈氢end
 }

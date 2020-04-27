@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 @Data
 public class Navigator{
+//    陈氢start
     private NavigatorMenu menu=new NavigatorMenu();
     public JPanel init(){
         JPanel navigator=new JPanel();
@@ -14,4 +15,5 @@ public class Navigator{
        navigator.add("North",menu);
        return navigator;
     }
+//    陈氢end
 }

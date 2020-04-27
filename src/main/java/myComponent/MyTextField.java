@@ -4,6 +4,7 @@ import javax.swing.JTextField;
 import java.awt.*;
 
 public class MyTextField extends JTextField {
+//    陈氢start
     public MyTextField(String name,int RorL){
         super();
         this.setText(name);
@@ -16,5 +17,5 @@ public class MyTextField extends JTextField {
         this.setOpaque(true);
 
     }
-
+//    陈氢end
 }
